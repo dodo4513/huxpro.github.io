@@ -7,8 +7,8 @@ navcolor:   "invert"
 date:       2016-11-20
 author:     "Hux"
 tags:
-    - 前端开发
-    - JavaScript
+    - 스프링
+    - ABCD
     - PWA
     - Service Worker
 ---
