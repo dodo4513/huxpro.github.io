@@ -9,38 +9,19 @@ tags:
     - GIT
 ---
 
-### Jekyll
-
-###### Jekyll&Github
- **Jekyll**은 아주 심플하고 블로그 지향적인 적정 사이트 생성기이다. 단순하게 텍스트를 작성하면 Liquid 렌더러를 통해 가공해서 정적 웹 사이트를 만들어 준다. 기본적인 틀은 다 만들어져 있기 때문에 위 과정이 정말 간단하다.  게다가 **Github에서 무료로 호스팅**을 할 수있기 때문에 더 매력적인 것 같다.
+######소프트웨어 개발을 오롯이 혼자서 할 수 있을까? 
  
-###### 테마 선정하기
- Jekyll repository에서 받아서 커스텀해도 되지만 나같이 귀찮은 사람들을 위해 만들어둔 테마가 많이 있다.
- 나중에 테마를 변경하는 것은 어렵기 때문에 잘 골라야 한다.
+ 어떤 규모의 프로그램이냐에 따라 다르겠지만, 중규모 이상의 프로젝트에서 기획부터 테스팅까지 혼자 한다는 것은 정말 힘든 일이다. 
+ 개발자를 도와주는 프레임워크나 라이브러리가 아무리 발전한다 해도 아마 비슷하겠지?
+
+###### 그렇다면 다른 사람과 함께 일을 하는 것은?
+
+ 다른 사람과 함께 일을 하는 것은 처음엔 많이 힘들고, 나중에서야 좀 수월해 지는 것 같다. 
+ 현재 간단하게 4명의 팀원과 웹 사이트를 개발하고 있다. 기획 회의부터 본격적인 개발까지 진행한 상태인데, 언제나 서로의 생각을 통일하는데 큰 힘을 쏟아붓고 있다. 
+
+###### 다른 사람과 함께 일한다는 것.
+
+ 지금껏 다르게 살아온 사람과 함께 코딩을 한다는 것은 생각보다 두려운 일이지만, 소프트웨어를 개발하는 개발자로서 당연한 일인 것 같다. 
+ 그래도 프로젝트를 진행하면 할 수록 어느정도 경험이 쌓여 점차 수월해 지는 것을 느낀다. 
  
-[Jekyll Wiki에 있는 테마 목록들](https://github.com/jekyll/jekyll/wiki/Themes)
-
-[현재 블로그에 사용된 테마 - Huxpro](https://github.com/Huxpro/huxpro.github.io)
-
-###### 블로그 만들기(Github 호스팅)
-<img class="shadow" src="/img/my-post/1/jekyll_1.png" >
- 1. 원하는 테마를 골랐다면 해당 Git repository에서 fork를 한다.
-<img class="shadow" src="/img/my-post/1/jekyll_2.png" >
- 2. 내 repository로 가져온 후 setting에 들어가서 repository name을 정해준다. 이 이름이 나중에 url이 된다. `이 때 https://github_id.github.io/ 형식으로 이름을 정해야 해당 주소로 바로 접속이 가능하다. 그렇지 않으면 https://github_ID.github.io/your_repository_name/이 된다.`
-<img class="shadow" src="/img/my-post/1/jekyll_3.png" >
- 3. 다시 한번 Setting의 Github pages 항목에서 Source를 적당한 branch로 선택 후 저장한다.
-
-- 3번 그림에서 나오는 CNAME 관련 에러는 자신의 Repository에서 해당 파일을 지우면 된다.
-
-###### 관리 하기
-
- - 기본적인 세팅은 _config.yml에서 하면 된다.
- - 포스트를 작성하고 올릴때는 _posts 폴더 안에 마크다운 문법으로 글을 작성하고 Github에 푸시하면 호스트에 반영된다.
-
-### 마치며
- 예전부터 내 생각이나 지식을 블로그에 차곡차곡 정리하면 어떨까 생각하며 살았다. 그러나 실제로 블로그를 한다는건 생각보다 손이 많이 가는 일이었고 조금 열심히 하다가 제풀에 지쳐 나가떨어졌다. 이번에 알게된 jekyll이라면 아주 가끔이라도 꾸준히 글을 쓸 수 있지 않을까? 기대한다.
-
-### 참고
-[한글로 번역된 jekyll 가이드](https://jekyllrb-ko.github.io/)
-
-[Github의 jekyll repository ](https://github.com/jekyll/jekyll)
+ 파이팅!
