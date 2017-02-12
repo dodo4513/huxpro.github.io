@@ -65,10 +65,10 @@ public String getfacebookSigninCode(HttpSession session) {
 Facebook의 로그인 대화상자 호출 및 리디렉션 URL을 설정한다.
 
 아까 봤던 Facebook 버튼이 클릭되면 위 Controller의 Method가 실행된다.
-- client_id : 아까 만든 Facebook의 app id.
-- redirect_uri : Facebook 로그인 후 돌아올 uri.
-- scope : [Facebook에서 가져올 데이터 권한 목록.](https://developers.facebook.com/docs/facebook-login/permissions)
-- state : 매개변수를 생성한 다음 로그인 요청에 사용하여 CSRF 보호용.
+ - client_id : 아까 만든 Facebook의 app id.
+ - redirect_uri : Facebook 로그인 후 돌아올 uri.
+ - scope : [Facebook에서 가져올 데이터 권한 목록.](https://developers.facebook.com/docs/facebook-login/permissions)
+ - state : 매개변수를 생성한 다음 로그인 요청에 사용하여 CSRF 보호용.
 
 위 Url로 redirect되면 Facebook 로그인창이 나타나며, 사용자가 로그인 시 위에 작성한 `redirect_url`로 돌아온다.
 
@@ -81,52 +81,52 @@ Facebook의 로그인 대화상자 호출 및 리디렉션 URL을 설정한다.
 
 ```java
 @RequestMapping(value = "/facebookAccessToken.do")
-	public String getFacebookSignIn(String code, HttpSession session, String state) throws Exception {
-		logger.debug("facebookAccessToken / code : "+code);
-		
-		String accessToken = requesFaceBooktAccesToken(session, code);
-		facebookUserDataLoadAndSave(accessToken, session);
-		
-		return "redirect:main.do";
-	}
+public String getFacebookSignIn(String code, HttpSession session, String state) throws Exception {
+	logger.debug("facebookAccessToken / code : "+code);
+	
+	String accessToken = requesFaceBooktAccesToken(session, code);
+	facebookUserDataLoadAndSave(accessToken, session);
+	
+	return "redirect:main.do";
+}
 ```
 
 `Authorization code`는 위 메서드의 code 파라미터에 들어오고, 이를 이용해 AccessToekn을 다시 얻어와야 한다. 위 코드에서 `requesFaceBooktAccesToken(session, code)`가 그 역할을 한다.
 위 Oauth 인증 흐름 이미지에서는 `6.Send Auth Code with Client id & secret`이다.
 
 ```java
-	private String requesFaceBooktAccesToken(HttpSession session, String code) throws Exception {
-		String facebookUrl = "https://graph.facebook.com/v2.8/oauth/access_token?"+
-						 	"client_id="+FACEBOOK_CLIENT_ID+
-						 	"&redirect_uri="+REDIRECT_URL+
-						 	"&client_secret="+FACEBOOK_CLIENT_SECRET_KEY+
-						 	"&code="+code;
-		
-		HttpClient client = HttpClientBuilder.create().build();
-		HttpGet getRequest = new HttpGet(facebookUrl);
-		String rawJsonString = client.execute(getRequest, new BasicResponseHandler());
-		logger.debug("facebookAccessToken / raw json : "+rawJsonString);
-		
-		JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(rawJsonString);
-		String faceBookAccessToken = (String) jsonObject.get("access_token");
-		logger.debug("facebookAccessToken / accessToken : "+faceBookAccessToken);
-		
-		session.setAttribute("faceBookAccessToken", faceBookAccessToken);
-		
-		return faceBookAccessToken;
-	}
+private String requesFaceBooktAccesToken(HttpSession session, String code) throws Exception {
+	String facebookUrl = "https://graph.facebook.com/v2.8/oauth/access_token?"+
+					 	"client_id="+FACEBOOK_CLIENT_ID+
+					 	"&redirect_uri="+REDIRECT_URL+
+					 	"&client_secret="+FACEBOOK_CLIENT_SECRET_KEY+
+					 	"&code="+code;
+	
+	HttpClient client = HttpClientBuilder.create().build();
+	HttpGet getRequest = new HttpGet(facebookUrl);
+	String rawJsonString = client.execute(getRequest, new BasicResponseHandler());
+	logger.debug("facebookAccessToken / raw json : "+rawJsonString);
+	
+	JSONParser jsonParser = new JSONParser();
+    JSONObject jsonObject = (JSONObject) jsonParser.parse(rawJsonString);
+	String faceBookAccessToken = (String) jsonObject.get("access_token");
+	logger.debug("facebookAccessToken / accessToken : "+faceBookAccessToken);
+	
+	session.setAttribute("faceBookAccessToken", faceBookAccessToken);
+	
+	return faceBookAccessToken;
+}
 ```
 
 AccessToken을 얻기위해 HttpClient로 다시 한번 통신을 한다.
-- client_id : 아까 만든 Facebook의 app id.
-- redirect_uri : Facebook 로그인 후 돌아올 uri.
-- client_secret : 이것도 아까만든 app의 secret id.
-- code : 아까 받은 `Authorization Code.`
+ - client_id : 아까 만든 Facebook의 app id.
+ - redirect_uri : Facebook 로그인 후 돌아올 uri.
+ - client_secret : 이것도 아까만든 app의 secret id.
+ - code : 아까 받은 `Authorization Code.`
 
 위 예제에서는 사용하지 않았지만 아까 code 요청 url에서 state를 보냈다면, 위 메서드에서 code 뿐 아니라 state도 받을 수 있다.
 
-** `Authorization code`를 요청할 때와 이를 이용해 `Access Token`을 요청할 때 같은 redirect_uri를 사용해야 한다. **
+ **`Authorization code`를 요청할 때와 이를 이용해 `Access Token`을 요청할 때 같은 redirect_uri를 사용해야 한다.**
 
 - - -
 
@@ -154,7 +154,7 @@ private void facebookUserDataLoadAndSave(String accessToken, HttpSession session
 }
 ```
 
-처음에 Facebook 인증 페이지로 리다이렉트할 때 함께 보냈던`scope`의 권한에 맞춰 위와같이 사용자의 facebook 정보를 요청할 수 있다. 아까전에 나는 `public_profile`,`email`를 요청했었고, 이에 맞춰 위에 소스에서 `fields=id,name,email,picture`로 요청 했다.
+처음 Facebook 인증 페이지로 리다이렉트할 때 함께 보냈던`scope`의 권한에 맞춰 위와같이 사용자의 facebook 정보를 요청할 수 있다. 아까전에 나는 `public_profile`,`email`를 요청했었고, 이에 맞춰 위에 소스에서 `fields=id,name,email,picture`로 요청 했다.
 
 Json 형태로 정보가 넘어오고 이를 각자의 서비스에 맞게 이용하면 될 것 같다.
 
