@@ -15,33 +15,45 @@ Facebook 로그인을 구현하는 가장 쉽고 편한 방법은 Facebook이 �
 `Spring 4.3.5 RELEASE + MAVEN` 웹 프로젝트 환경에서 할 것이며, 혹 본 포스트의 내용에 잘못된 점이나 개선할 점이 있다면 알려주세요!
 
 ###### 전체적인 흐름
+
+전체적인 Oauth 인증 흐름은 아래와 같다.
 <img class="shadow" src="/img/my-post/2/oauth_flow.png" >
 이미지 출처:[Linked in OAuth token processing using DataPower® IDG - Part 1: OAuth 2.0 basics & DataPower® OAuth Support](https://www.linkedin.com/pulse/oauth-token-processing-using-datapower-idg-part-1-20-julian-smiles)
 
 
+- - -
+
 ###### Facebook App만들기
 
-[Facebook for developers - app](https://developers.facebook.com/apps/)
+[Facebook for developers - app 만들기](https://developers.facebook.com/apps/)
 
-위 url을 따라가보면 App을 만들 수 있다. 적당히 만들면 아래와 같은 화면을 볼 수 있다. 이 때 `앱 ID와 앱 시크릿 코드`는 나중에 사용해야하니 잘 챙겨야 한다.
+위 url을 따라가보면 App을 만들 수 있다. 적당히 만들면 아래와 같은 화면을 볼 수 있다. 이 때 `앱 ID와 앱 시크릿 코드`는 나중에 사용해야하니 잘 챙겨 두면된다..
 <img class="shadow" src="/img/my-post/2/app_id_pw.png" >
 
+- - -
+
 ###### Facebook 버튼
+
 ```html
 <a href="facebookSignin.do">
 	<button type="button" class="btn btn-primary">Facebook 로그인</button>
 </a>
 ```
-아주 단순한 Facebook 로그인 버튼에서 시작한다.
+
+아주 단순한 Facebook 로그인 버튼에서 시작한다. 위 버튼을 누르면 아래에서 볼 수 있는 `getfacebookSigninCode(HttpSession session)`으로 간다.
+
+- - - 
 
 ###### Facebook 인증 페이지로 리다이렉트
+
 아까 봤던 Oauth 인증 흐름 이미지에서 `3.Login via Authorization Server`에 해당한다.
+
 ```java
 @RequestMapping(value = "/facebookSignin.do")
 public String getfacebookSigninCode(HttpSession session) {
 	logger.debug("facebookSignin");
 
-	String facebookUrl = 	"https://www.facebook.com/v2.8/dialog/oauth?"+
+	String facebookUrl = "https://www.facebook.com/v2.8/dialog/oauth?"+
 					"client_id="+FACEBOOK_CLIENT_ID+
 					"&redirect_uri=http://localhost:8080/letsparty/facebookAccessToken.do"+
 					"&scope=public_profile,email";
@@ -49,6 +61,7 @@ public String getfacebookSigninCode(HttpSession session) {
 	return "redirect:"+facebookUrl;
 }
 ```
+
 Facebook의 로그인 대화상자 호출 및 리디렉션 URL을 설정한다.
 
 아까 봤던 Facebook 버튼이 클릭되면 위 Controller의 Method가 실행된다.
@@ -58,9 +71,14 @@ Facebook의 로그인 대화상자 호출 및 리디렉션 URL을 설정한다.
 - state : 매개변수를 생성한 다음 로그인 요청에 사용하여 CSRF 보호용.
 
 위 Url로 redirect되면 Facebook 로그인창이 나타나며, 사용자가 로그인 시 위에 작성한 `redirect_url`로 돌아온다.
+
+- - -
+
 ###### Authorization code
+
 사용자가 Facebook 로그인 성공시 `redirect_url`로 돌아오는데 Authorization Code도 함께 돌아온다.
 이는 Oauth 인증 흐름 이미지에서 `4.Redirect to Client URI with Authorization Code`에 해당한다.
+
 ```java
 @RequestMapping(value = "/facebookAccessToken.do")
 	public String getFacebookSignIn(String code, HttpSession session, String state) throws Exception {
@@ -72,6 +90,7 @@ Facebook의 로그인 대화상자 호출 및 리디렉션 URL을 설정한다.
 		return "redirect:main.do";
 	}
 ```
+
 `Authorization code`는 위 메서드의 code 파라미터에 들어오고, 이를 이용해 AccessToekn을 다시 얻어와야 한다. 위 코드에서 `requesFaceBooktAccesToken(session, code)`가 그 역할을 한다.
 위 Oauth 인증 흐름 이미지에서는 `6.Send Auth Code with Client id & secret`이다.
 
@@ -98,6 +117,7 @@ Facebook의 로그인 대화상자 호출 및 리디렉션 URL을 설정한다.
 		return faceBookAccessToken;
 	}
 ```
+
 AccessToken을 얻기위해 HttpClient로 다시 한번 통신을 한다.
 - client_id : 아까 만든 Facebook의 app id.
 - redirect_uri : Facebook 로그인 후 돌아올 uri.
@@ -108,8 +128,12 @@ AccessToken을 얻기위해 HttpClient로 다시 한번 통신을 한다.
 
 ** `Authorization code`를 요청할 때와 이를 이용해 `Access Token`을 요청할 때 같은 redirect_uri를 사용해야 한다. **
 
+- - -
+
 ###### Access Token을 가지고 Facebook 정보 요청하기
+
 위 `getFacebookSignIn(String code, HttpSession session, String state)` 메소드 안에 있는 `facebookUserDataLoadAndSave(accessToken, session)`가 정보 요청을 한다.
+
 ```java
 private void facebookUserDataLoadAndSave(String accessToken, HttpSession session) throws Exception {
     String facebookUrl = "https://graph.facebook.com/me?"+
@@ -126,9 +150,10 @@ private void facebookUserDataLoadAndSave(String accessToken, HttpSession session
     logger.debug("facebookUserDataLoadAndSave / raw json : "+jsonObject);
 
 	/* 가져온 데이터를 서비스에 맞춰 가공하는 로직*/
-    
+
 }
 ```
+
 처음에 Facebook 인증 페이지로 리다이렉트할 때 함께 보냈던`scope`의 권한에 맞춰 위와같이 사용자의 facebook 정보를 요청할 수 있다. 아까전에 나는 `public_profile`,`email`를 요청했었고, 이에 맞춰 위에 소스에서 `fields=id,name,email,picture`로 요청 했다.
 
 Json 형태로 정보가 넘어오고 이를 각자의 서비스에 맞게 이용하면 될 것 같다.
