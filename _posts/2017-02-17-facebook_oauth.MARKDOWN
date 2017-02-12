@@ -109,7 +109,7 @@ private String requesFaceBooktAccesToken(HttpSession session, String code) throw
 	logger.debug("facebookAccessToken / raw json : "+rawJsonString);
 	
 	JSONParser jsonParser = new JSONParser();
-    JSONObject jsonObject = (JSONObject) jsonParser.parse(rawJsonString);
+	JSONObject jsonObject = (JSONObject) jsonParser.parse(rawJsonString);
 	String faceBookAccessToken = (String) jsonObject.get("access_token");
 	logger.debug("facebookAccessToken / accessToken : "+faceBookAccessToken);
 	
@@ -160,7 +160,17 @@ private void facebookUserDataLoadAndSave(String accessToken, HttpSession session
 
 Json 형태로 정보가 넘어오고 이를 각자의 서비스에 맞게 이용하면 될 것 같다.
 
+### 마치며
+
+Oauth 인증 흐름 이미지가 큰 도움이 되었다. 순서대로 하나하나 따라가며 Facebook 레퍼런스를 참고해 구현하니 해볼만 했다. 레퍼런스가 정말 잘 되있더라. 그러나 기능은 동작하지만 위 방식대로 구현하는 것이 실제로 올바른 방법인지는 좀더 고민해 볼 필요가 있을 것 같다.
+
+### 추가한 Maven 라이브러리
+
+[HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient/4.5.2)
+[JSONParser, JSONObject](https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1.1) 
+
 ### 참고
+
 [Facebook 로그인 플로 직접 빌드](https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow)
 
 [Facebook 그래프 API 탐색기](https://developers.facebook.com/tools/explorer/)
