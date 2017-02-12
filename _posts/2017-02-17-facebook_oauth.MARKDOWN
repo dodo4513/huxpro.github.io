@@ -20,7 +20,6 @@ Facebook 로그인을 구현하는 가장 쉽고 편한 방법은 Facebook이 �
 <img class="shadow" src="/img/my-post/2/oauth_flow.png" >
 이미지 출처:[Linked in OAuth token processing using DataPower® IDG - Part 1: OAuth 2.0 basics & DataPower® OAuth Support](https://www.linkedin.com/pulse/oauth-token-processing-using-datapower-idg-part-1-20-julian-smiles)
 
-
 - - -
 
 ###### Facebook App만들기
