@@ -6,7 +6,8 @@ date:       2017-2-12
 author:     "Xavy"
 catalog:    true
 tags:
-    - Oauth, Spring
+    - Oauth
+    - Spring
 ---
 
 ### Facebook Oauth login flow 직접 빌드하기
@@ -64,10 +65,11 @@ public String getfacebookSigninCode(HttpSession session) {
 Facebook의 로그인 대화상자 호출 및 리디렉션 URL을 설정한다.
 
 아까 봤던 Facebook 버튼이 클릭되면 위 Controller의 Method가 실행된다.
- - client_id : 아까 만든 Facebook의 app id.
- - redirect_uri : Facebook 로그인 후 돌아올 uri.
- - scope : [Facebook에서 가져올 데이터 권한 목록.](https://developers.facebook.com/docs/facebook-login/permissions)
- - state : 매개변수를 생성한 다음 로그인 요청에 사용하여 CSRF 보호용.
+
+- client_id : 아까 만든 Facebook의 app id.
+- redirect_uri : Facebook 로그인 후 돌아올 uri.
+- scope : [Facebook에서 가져올 데이터 권한 목록.](https://developers.facebook.com/docs/facebook-login/permissions)
+- state : 매개변수를 생성한 다음 로그인 요청에 사용하여 CSRF 보호용.
 
 위 Url로 redirect되면 Facebook 로그인창이 나타나며, 사용자가 로그인 시 위에 작성한 `redirect_url`로 돌아온다.
 
@@ -118,10 +120,11 @@ private String requesFaceBooktAccesToken(HttpSession session, String code) throw
 ```
 
 AccessToken을 얻기위해 HttpClient로 다시 한번 통신을 한다.
- - client_id : 아까 만든 Facebook의 app id.
- - redirect_uri : Facebook 로그인 후 돌아올 uri.
- - client_secret : 이것도 아까만든 app의 secret id.
- - code : 아까 받은 `Authorization Code.`
+
+- client_id : 아까 만든 Facebook의 app id.
+- redirect_uri : Facebook 로그인 후 돌아올 uri.
+- client_secret : 이것도 아까만든 app의 secret id.
+- code : 아까 받은 `Authorization Code.`
 
 위 예제에서는 사용하지 않았지만 아까 code 요청 url에서 state를 보냈다면, 위 메서드에서 code 뿐 아니라 state도 받을 수 있다.
 
