@@ -43,6 +43,8 @@ Session 작동 방식 그림에서 볼 수 있듯, Client와 각 Server간에 �
 
 ### 참고
 [What is HttpSession?](http://www.studytonight.com/servlet/httpsession.php)
+
 [Session Clustering에 대한 Groups 토론](https://groups.google.com/forum/#!topic/ksug/6ZA6hDJOdKA)
+
 [Tomcat Session Cluster 관련 블로그](http://sarc.io/index.php/tomcat/111-tomcat-session-cluster-1)
 
