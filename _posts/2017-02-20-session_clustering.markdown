@@ -33,11 +33,11 @@ Session 작동 방식 그림에서 볼 수 있듯, Client와 각 Server간에 �
 
 ### Session Clustering
 
-위와 같은 문제를 해결하기 위한 방법은 아래와 같이 여러가지가 있다.
+위와 같은 문제를 해결하기 위한 방법은 아래와 같은 것들이 있다.
 
-1. Tomcat(or jboss) session clustering
-2. Memcached session manager
-3. Sticky Session
+1. Tomcat(or Jboss) session clustering : [Tomcat7 Clustering/Session Replication HOW-TO](https://tomcat.apache.org/tomcat-7.0-doc/cluster-howto.html) 참고
+2. Memcached session manager : [session clustering 을 위한 memcached 사용하기](http://hskimsky.tistory.com/3) 참고
+3. Sticky Session : [Amazon Elastic Load Balancing Feature: Sticky Session](https://aws.amazon.com/ko/blogs/aws/new-elastic-load-balancing-feature-sticky-sessions/) 참고
 4. 암호화된 Cookie 이용
 
 
