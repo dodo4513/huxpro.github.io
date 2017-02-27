@@ -1,9 +1,9 @@
 ﻿# Site settings
 title: Xavy Blog
-SEOTitle: SEOTITLE | Xavy Blog
+SEOTitle: Xavy IT Blog
 header-img: img/home-bg-art.jpg
 email: dodo45133@gmail.com
-description: "Web Lover，Front-End, Back-End Engineer，UX Designer"
+description: Front-End, Back-End Engineer
 keyword: "xavy, develope, xavy blog"
 url: "https://dodo4513.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'

@@ -7,9 +7,12 @@
     <meta name="keywords"  content="{{ site.keyword }}">
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}">
     
-    <meta http-equiv="Cache-Control" content="no-cache"/> 
-	<meta http-equiv="Expires" content="0"/>
-	<meta http-equiv="Pragma" content="no-cache"/>
+    <meta property="og:type" content="website">
+	<meta property="og:title" content="Xavy IT Blog">
+	<meta property="og:description" content={%=page.title%}{{page.title}}>
+	<!-- <meta property="og:image" content="http://www.mysite.com/myimage.jpg"> -->
+	<meta property="og:url" content="https://dodo4513.github.io/">
+	
     
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
 
