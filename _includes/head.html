@@ -9,6 +9,10 @@
     
     <meta property="og:type" content="website">
 
+	<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Xavy IT Blog{% endif %}">
+	<meta property="og:description" content="{% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}">
+
+	
 	
 	<!-- <meta property="og:image" content="http://www.mysite.com/myimage.jpg"> -->
 	<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
