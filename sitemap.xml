@@ -6,4 +6,5 @@ layout: none
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 {% for p in site.pages %}{% include sitemapxml.html url=p.url %}
 {% endfor %}
+{% include sitemapxml.html url="/_posts/" %}
 </urlset>
