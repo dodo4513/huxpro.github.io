@@ -8,13 +8,7 @@
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}">
     
     <meta property="og:type" content="website">
-    {% if page.title %}
-	<meta property="og:title" content="{{ page.title }}">
-	<meta property="og:description" content="{{ page.subtitle }}">
-	{% else %}
-	<meta property="og:title" content="Xavy IT Blog">
-	<meta property="og:description" content="{{ site.description }}">
-	{% endif &}
+
 	
 	<!-- <meta property="og:image" content="http://www.mysite.com/myimage.jpg"> -->
 	<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
