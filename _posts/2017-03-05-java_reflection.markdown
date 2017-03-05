@@ -2,7 +2,7 @@
 layout:     post
 title:      "java Reflection 예제"
 subtitle:   "Java Reflection과 간단한 예제"
-date:       2017-03-04
+date:       2017-03-05
 author:     "Xavy"
 catalog:    true
 tags:
