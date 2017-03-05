@@ -87,13 +87,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "Su",
-        href: "http://su.gallery/"
-    },{
-        title: "SmdCn's Blog",
-        href: "http://blog.smdcn.net"
-    },{
-        title: "DHong Say",
-        href: "http://dhong.co"
+        title: "흔한만두의 IT노트",
+        href: "http://mandoitnote.tistory.com/"
     }
 ]
