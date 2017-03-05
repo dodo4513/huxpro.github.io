@@ -3,4 +3,4 @@
 
 User-agent: *
 Allow: /
-Sitemap: https://dodo4513.github.io//sitemap.xml
+Sitemap: https://dodo4513.github.io/sitemap.xml

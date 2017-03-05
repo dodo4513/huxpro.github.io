@@ -10,7 +10,7 @@ baseurl: ""                             # for example, '/blog' if your blog host
 comments: true
 
 # SNS settings
-RSS: false
+RSS: true
 github_username:    dodo4513
 #twitter_username:  dodo4513
 facebook_username:  hwangdoyoung
