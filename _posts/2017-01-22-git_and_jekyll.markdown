@@ -23,11 +23,11 @@ tags:
 [현재 블로그에 사용된 테마 - Huxpro](https://github.com/Huxpro/huxpro.github.io)
 
 ###### 블로그 만들기(Github 호스팅)
-<img class="shadow" src="/img/my-post/1/jekyll_1.png" >
+<img class="shadow" src="/img/my-post/1/jekyll_1.png" alt="jekyll1">
  1. 원하는 테마를 골랐다면 해당 Git repository에서 fork를 한다.
-<img class="shadow" src="/img/my-post/1/jekyll_2.png" >
+<img class="shadow" src="/img/my-post/1/jekyll_2.png" alt="jekyll2" >
  2. 내 repository로 가져온 후 setting에 들어가서 repository name을 정해준다. 이 이름이 나중에 url이 된다. `이 때 https://github_id.github.io/ 형식으로 이름을 정해야 해당 주소로 바로 접속이 가능하다. 그렇지 않으면 https://github_ID.github.io/your_repository_name/이 된다.`
-<img class="shadow" src="/img/my-post/1/jekyll_3.png" >
+<img class="shadow" src="/img/my-post/1/jekyll_3.png" alt="jekyll3">
  3. 다시 한번 Setting의 Github pages 항목에서 Source를 적당한 branch로 선택 후 저장한다.
 
 - 3번 그림에서 나오는 CNAME 관련 에러는 자신의 Repository에서 해당 파일을 지우면 된다.

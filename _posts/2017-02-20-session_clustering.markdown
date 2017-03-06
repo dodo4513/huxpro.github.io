@@ -13,7 +13,7 @@ tags:
 
 ###### Session의 작동 방식
 
-<img class="shadow" src="/img/my-post/3_session_clustering/what_is_session.PNG" >
+<img class="shadow" src="/img/my-post/3_session_clustering/what_is_session.PNG" alt="what is session">
 
 1. 먼저 **Client**의 첫 번쨰 Request에서 **Web Container**는 고유 Session ID를 생성하고 이를 Response와 함께 **Client**에게 돌려준다. 이는 **Web Container**에 의해 생성된 임시 Session이다.
 
@@ -27,7 +27,7 @@ tags:
 
 Stateless한 HTTP 프로토콜 특징 덕분에, 페이지 이동 간에 로그인과 같은 서비스를 제공하려면 Session을 사용해 구현하면 된다. 이 때 한 대의 Web 서버라면 무리없이 보통의 HTTPServletSession를 이용해서 로그인을 구현할 수 있지만, Web 서버가 2대 이상으로 구성된 상황에서도 올바르게 동작할까??
 
-<img class="shadow" alt="session clustering" src="/img/my-post/3_session_clustering/load_balancer.PNG" >
+<img class="shadow" alt="session clustering" src="/img/my-post/3_session_clustering/load_balancer.PNG" alt="load balancer" >
 
 Session 작동 방식 그림에서 볼 수 있듯, Client와 각 Server간에 관계를 맺는 것 이기 때문에, 기본적으로 모든 Web Server의 Session은 각 서버들 끼리 동기화되지 않는다. 따라서 각각 보관되기 때문에 Web Server1에서 로그인을 했는데, 다른 페이지를 Web Server2 요청한다면, Session이 끊어져 로그인이 풀리게 된다.
 
