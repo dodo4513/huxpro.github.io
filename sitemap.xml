@@ -26,6 +26,6 @@ layout: null
     <changefreq>{{ sitemap.freq | default: 'monthly' }}</changefreq>
     <priority>{{ sitemap.priority | default: '1.0' }}</priority>
   </url>
-  {% endif %}
+  {% endif %}	
   {% endfor %}
 </urlset>
