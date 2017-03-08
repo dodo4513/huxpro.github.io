@@ -1,10 +1,10 @@
 ﻿# Site settings
 title: Xavy Blog
-SEOTitle: Xavy IT Blog
+SEOTitle: Xavy's IT Blog
 header-img: img/home-bg-art.jpg
 email: dodo45133@gmail.com
-description: Front-End, Back-End Engineer
-keyword: "xavy, develope, xavy blog"
+description: 오래오래 개발하고 먹고 사는데 도움이 될까해서 만든 Xavy의 IT Blog입니다!
+keyword: "xavy, develope, xavy blog, dodo4513"
 url: "https://dodo4513.github.io/"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 comments: true
@@ -67,7 +67,7 @@ ga_domain: 'auto'
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "안녕하세요!"
+sidebar-about-description: "안녕하세요! 다양한 사람들과 이야기하고 싶어요. 무엇이든 좋아요. dodo45133@gmail.com"
 sidebar-avatar: /img/avatar-xavy.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
