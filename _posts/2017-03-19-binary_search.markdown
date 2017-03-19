@@ -11,9 +11,9 @@ tags:
 
 ### Binary Search
 
-어떤 **정렬된 배열**에서 무엇을 찾을 때, **O(n)번 보다 더 나은 성능**을 원할 때, 생각해볼만한 주제다.
+어떤 **정렬된 배열**에서 무엇을 찾을 때, **O(n)번 보다 더 나은 성능**을 원할 때, 생각해볼 만한 주제다.
 
-다양한 방식으로 같은 동작을 하는 Binary Search를 구현해 볼 것인데, 딱히 각 방식마다 큰 차이가 있거나, 무엇이 더 좋다는 것은 아니고 Binary Search의 원리을 어떻게 소스로 나타낼 것인가를 고민해 봄으로써 얻는 것이 있지 않을까 해서 정리한다.
+다양한 방식으로 같은 동작을 하는 Binary Search를 구현해 볼 것인데, 딱히 방식마다 큰 차이가 있거나, 무엇이 더 좋다는 것은 아니고 Binary Search의 원리를 어떻게 소스로 나타낼 것인가를 고민해 봄으로써 얻는 것이 있지 않을까 해서 정리한다.
 
 ###### 반복문을 이용하는 Binary Search
 
@@ -42,8 +42,8 @@ int binarySearch(int* array, int arraySize, int number) {
 }
 ```
 
-- 배열에 원하는 값을 찾지 못했을 때 어떻게 할 것인지 까먹지 말아야한다.(위 예제에서는 -1을 리턴)
-- mid를 구할 때 low + high가 순간 int 범위를 넘어갈 수 있기 때문에 long long으로 캐스팅 한다.
+- 배열에 원하는 값을 찾지 못했을 때 어떻게 할 것인지 까먹지 말아야 한다.(위 예제에서는 -1을 리턴)
+- mid를 구할 때 low + high가 순간 int 범위를 넘어갈 수 있으므로 long long으로 캐스팅한다.
 
 ###### 재귀적으로 작성한 Binary Search
 
@@ -67,7 +67,7 @@ int recursiveBinarySearch(int* array, int startIndex, int endIndex, int number) 
 }
 ```
 
-- 재귀는 매 상태를 함수가 알아야하기 때문에 반복문과는 다르게 `startIndex`, `endIndex`를 파라미터로 받는다.
+- 재귀는 매 상태를 함수가 저장하고 있어야 하기 때문에 알아야하기 때문에 반복문과는 다르게 `startIndex`, `endIndex`를 파라미터로 받는다.
 
 ###### 조금 다르게 재귀적으로 작성한 Binary Search
 
