@@ -7,6 +7,7 @@ author:     "Xavy"
 catalog:    true
 tags:
     - Algorithm
+    - Interview
 ---
 
 ### Binary Search

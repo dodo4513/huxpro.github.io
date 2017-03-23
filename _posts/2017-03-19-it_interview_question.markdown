@@ -1,12 +1,12 @@
 ---
 layout:     post
 title:      "IT 기업 Pre-test, 면접 준비"
-subtitle:   "여러 IT 기업 입사를 준비하며 공부했던 것들을 까먹기 전에 정리해두자."
+subtitle:   "여러 IT 기업 입사를 준비하며 공부했던 것들을 까먹기 전에 정리한다."
 date:       2017-3-19
 author:     "Xavy"
 catalog:    true
 tags:
-    - ETC
+    - Interview
 ---
 
 ### 시작하기 전에
@@ -21,7 +21,7 @@ tags:
 
 ###### Algorithm
 
-Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 손 으로 작성할 수 있느냐가 중요한 것 같다. 면접장에서도 손코딩을 보는 회사가 더러 있으니까, 여유가 있다면 연습장에 손으로 써보면서 연습해보자.
+Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 손으로 작성할 수 있느냐가 중요한 것 같다. 면접장에서도 손코딩을 보는 회사가 더러 있으니까, 여유가 있다면 연습장에 손으로 써보면서 연습해보자.
 
 1. [다양한 방식으로 Binary Search 구현하기](https://dodo4513.github.io/2017/03/19/binary_search/)
 
