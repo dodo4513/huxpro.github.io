@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "IT 기업 Pre-test, 면접 준비"
-subtitle:   "여러 IT 기업 입사를 준비하며 공부했던 것들을 까먹기 전에 정리한다."
+subtitle:   "여러 IT 기업 입사를 준비하며 공부했던 것들을 까먹기 전에 정리하자."
 date:       2017-3-19
 author:     "Xavy"
 catalog:    true
@@ -26,6 +26,8 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 1. [다양한 방식으로 Binary Search 구현하기](https://dodo4513.github.io/2017/03/19/binary_search/)
 
 2. [atoi, itoa, memcpy 구현 하기](https://dodo4513.github.io/2017/03/25/atoi_itoa_memcpy/)
+
+3. [선택 정렬, 삽입 정렬, 삽입 정렬, 쉘 정렬 예제 및 정리](https://dodo4513.github.io/2017/03/26/sort_1)
 
 ###### Web
 
