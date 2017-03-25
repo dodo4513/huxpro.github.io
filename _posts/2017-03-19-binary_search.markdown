@@ -48,7 +48,7 @@ int binarySearch(int* array, int arraySize, int number) {
 
 ###### 재귀적으로 작성한 Binary Search
 
-```C++
+```c++
 int recursiveBinarySearch(int* array, int startIndex, int endIndex, int number) {
 
 	if (startIndex > endIndex)
@@ -72,7 +72,7 @@ int recursiveBinarySearch(int* array, int startIndex, int endIndex, int number) 
 
 ###### 조금 다르게 재귀적으로 작성한 Binary Search
 
-```C++
+```c++
 int newRecursiveBinarySearch(int* array, int startIndex, int endIndex, int number) {
 
 	int result = -1;

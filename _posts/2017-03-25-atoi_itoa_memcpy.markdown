@@ -24,7 +24,7 @@ tags:
 
 > **표준 함수**
 
-```code
+```c++
 int atoi(char const *c){
 
 	int value = 0;
@@ -53,7 +53,7 @@ int atoi(char const *c){
 
 > **비표준 함수**
 
-```code
+```c++
 char* itoa(int val, char * buf, int radix) {
 
 	char* p = buf;
@@ -90,7 +90,7 @@ char* itoa(int val, char * buf, int radix) {
 
 > **표준 함수**
 
-```code
+```c++
 char* strcpy(const char * destination, const char * source){
 
 	while(*src != NULL)
