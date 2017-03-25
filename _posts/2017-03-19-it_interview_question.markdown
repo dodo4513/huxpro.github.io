@@ -25,6 +25,8 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 
 1. [다양한 방식으로 Binary Search 구현하기](https://dodo4513.github.io/2017/03/19/binary_search/)
 
+2. [atoi, itoa, memcpy 구현 하기](https://dodo4513.github.io/2017/03/25/atoi_itoa_memcpy/)
+
 ###### Web
 
 ###### Network

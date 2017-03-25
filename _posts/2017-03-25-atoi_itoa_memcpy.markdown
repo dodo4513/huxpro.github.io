@@ -19,9 +19,9 @@ tags:
 ###### atoi 함수
 
 > header file : stdlib.h
-
+>
 > retun value : int형으로 변환된 숫자 값
-
+>
 > **표준 함수**
 
 ```c++
@@ -48,9 +48,9 @@ int atoi(char const *c){
 ###### itoa 함수
 
 > header file : stdlib.h
-
+>
 > return value : 변환된 문자열의 주소
-
+>
 > **비표준 함수**
 
 ```c++
@@ -85,9 +85,9 @@ char* itoa(int val, char * buf, int radix) {
 ###### strcpy 함수
 
 > header file : string.h
-
+>
 > return value : 복사한 목적지 문자열의 주소
-
+>
 > **표준 함수**
 
 ```c++
