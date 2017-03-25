@@ -28,7 +28,7 @@ int binarySearch(int* array, int arraySize, int number) {
 
 		int mid = (low + (long long)high) / 2;
 
-		if (*(array + mid) == number) 
+		if (*(array + mid) == number)
 			return mid;
 
 		else if (*(array + mid) > number)
@@ -96,3 +96,7 @@ int newRecursiveBinarySearch(int* array, int startIndex, int endIndex, int numbe
 ```
 
 - result 변수에 값을 담는 점에서 위 재귀와 돌아가는 방식이 조금 다르다.
+
+### 마치며
+
+위 소스들은 표현이 다를 뿐 모두 binarySearch를 구현하고 있다. 표현의 방법이 중요한 것은 아니고 그냥 재미삼아 다양한 방식으로 binarySearch를 구현하는 것에 의의를 두자!

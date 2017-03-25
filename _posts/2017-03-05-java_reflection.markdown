@@ -14,13 +14,14 @@ tags:
 ###### Reflection이란?
 
 > Reflection is a feature in the Java programming language. It allows an executing Java program to examine or "introspect" upon itself, and manipulate internal properties of the program. For example, it's possible for a Java class to obtain the names of all its members and display them.
-> 
+>
 > Reflection은 Java의 특징이다. 실행중인 Java 프로그램이 자신을 관찰하거나, 프로그램의 내부 속성들을 조작할 수 있게 허용한다. 예를 들자면, Java 클래스의 모든 멤버를 가져와 이름을 보여줄 수 있다.
 
 조금 오래된 글이긴 하지만, Oracle에서 위와 같은 java reflection에 대한 설명을 찾았다. - [Using Java Reflection](http://www.oracle.com/technetwork/articles/java/javareflection-1536171.html)
 
-Java는 Class 클래스를 통해 런타임 타입정보를 제공한다. 객체에서 Class 클래스를 얻기 위해서는 getClass() 메소드를 호출하면 된다. 
-Class 클래스를 이용하여 런타임에 객체의 타입을 알 수 있으며, 객체 필드의 값을 조회하거나 변경할 수도 있다. 이와 같이 **런타임에 타입정보를 다루는 것을 Reflection**이라 하며 java.lang.reflect 패키지에는 다양한 리플랙션과 관련된 API를 제공한다.
+Java는 Class 클래스를 통해 런타임 타입정보를 제공한다. 객체에서 Class 클래스를 얻기 위해서는 getClass() 메소드를 호출하면 된다.
+Class 클래스를 이용하여 런타임에 객체의 타입을 알 수 있으며, 객체 필드의 값을 조회하거나 변경할 수도 있다. 이와 같이
+**런타임에 타입정보를 다루는 것을 Reflection** 이라 하며 java.lang.reflect 패키지에는 다양한 리플랙션과 관련된 API를 제공한다.
 
 ### Reflection 예제
 
