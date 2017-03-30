@@ -41,6 +41,18 @@ tags:
  예전부터 내 생각이나 지식을 블로그에 차곡차곡 정리하면 어떨까 생각하며 살았다. 그러나 실제로 블로그를 한다는건 생각보다 손이 많이 가는 일이었고 조금 열심히 하다가 제풀에 지쳐 나가떨어졌다. 이번에 알게된 jekyll이라면 아주 가끔이라도 꾸준히 글을 쓸 수 있지 않을까? 기대한다.
 
 
+                <div style="width:800px;" align:center>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- 본문 내 삽입 광고1 -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:728px;height:90px"
+                         data-ad-client="ca-pub-6655397595619261"
+                         data-ad-slot="9573751638"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
 ### 참고
 [한글로 번역된 jekyll 가이드](https://jekyllrb-ko.github.io/)
 
