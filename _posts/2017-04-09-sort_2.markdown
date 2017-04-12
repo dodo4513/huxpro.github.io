@@ -1,0 +1,155 @@
+---
+layout:     post
+title:      "합병(Merge) 정렬, 퀵(Quick) 정렬 예제 및 정리"
+subtitle:   "각 정렬을 살펴보고 구현해보자!"
+date:       2017-4-09
+author:     "Xavy"
+catalog:    true
+tags:
+    - Interview
+    - Algorithm
+---
+
+### 시작하기 전에
+
+- 여러 정렬들을 단순하게 2가지로 나눈다면, 성능을 가지고 나눠볼 수 있을 것 같다. 아래의 포스트에서 볼 수 있는 정렬들은 보통 n^2의 성능을 보여주고(쉘 정렬은 제외하고~) 이번 포스트에서 볼 정렬들은 대게 그보다 더 빠른 성능을 보여주는 알고리즘이다.
+
+[선택(Selection) 정렬, 삽입(Insertion) 정렬, 버블(Bubble) 정렬, 쉘(Shell) 정렬 예제 및 정리](https://dodo4513.github.io/2017/03/26/sort_1/)
+
+- 다양한 알고리즘들 저마다 다른 특성을 가지고 있으므로 잘 생각해 사용하자.
+
+- 아래의 정렬을 보다 보면 SWAP(x, y) 매크로가 보일 텐데, 정렬 예제이므로 로직에 더 집중할 수 있도록 매크로로 처리했다. #define SWAP(x, y, t) { t=x; x=y; y=t; }를 소스 상단에 붙여넣으면 된다.
+
+
+### 합병 정렬(Merge sort)
+
+###### 구현
+
+```c++
+
+int target[10] = { 3,5,7,9,1,2,4,6,8,0 };
+int temp[10];
+
+void Merge(int size, int s, int m, int e) {
+	for (int i = s; i <= e; i++)
+		temp[i] = target[i];
+
+	int tempLeft = s;
+	int tempRight = m + 1;
+	int current = s;
+
+	while (tempLeft <= m && tempRight <= e) {
+		if (temp[tempLeft] <= temp[tempRight]) {
+			target[current] = temp[tempLeft];
+			tempLeft++;
+		}
+		else {
+			target[current] = temp[tempRight];
+			tempRight++;
+		}
+		current++;
+	}
+
+	int remaing = m - tempLeft;
+	for (int i = 0; i <= remaing; i++) {
+		target[current + i] = temp[tempLeft + i];
+	}
+}
+
+void MergeSort(int size, int s, int e) {
+	if (s < e) {
+		int m = (s + e) / 2;
+		MergeSort(m - s + 1, s, m);
+		MergeSort(e - m, m + 1, e);
+		Merge(size, s, m, e);
+	}
+}
+
+int main() {
+	MergeSort(10, 0, 9);
+	for (int i=0; i < 10; i++) {
+		printf("%d ", target[i]);
+	}
+}
+
+```
+
+- 분할정복(divide and conquer)알고리즘에 따라 MergeSort()가 분할을 하고 Merge()를 통해 합한다. 소스가 다소 길어보이지만, 알고리즘 원리를 이해한다면 어렵진 않다.
+
+###### 성능
+
+|구분|최선 성능|최악 성능|평균 성능|
+|---
+|선택정렬|nlgn|nlgn|nlgn|
+
+- 크기 n의 배열을 분할하는데 lgn, 이를 다시 정렬하며 병합하는데 n이 소요되기 때문에 nlgn 성능을 보장한다.
+
+###### 총평
+
+- 언제나 고른 성능을 보장한다. 그러나 병합하는 과정에서 **n사이즈 만큼의 메모리가 추가적으로 필요** 하다. 아래에서 살펴볼 퀵 정렬과 큰 차이점이기도 하다.
+
+- 근처의 요소와 비교하며 병합하므로 **안정성을 가진다.** 이때 '안정성을 가진다'란 같은 값을 가진 데이터들을 정렬할 때, 기존의 순서가 바뀌지 않음을 보장한다는 말이다.
+
+### 퀵 정렬(Quick Sort)
+
+###### 구현
+
+```c++
+int target[10] = { 3,5,7,9,1,2,4,6,8,0 };
+int t;
+
+int partition(int s, int e) {
+	int m = target[(s + e) / 2];
+
+	while (s <= e) {
+		while (target[s] < m) s++;
+		while (target[e] > m) e--;
+
+		if (s <= e) {
+			SWAP(target[s], target[e], t);
+			s++;
+			e--;
+		}
+	}
+	return s;
+}
+
+void quickSort(int s, int e) {
+	int pivot = partition(s, e);
+
+	if (s < pivot - 1)
+		quickSort(s, pivot - 1);
+	if (e > pivot)
+		quickSort(pivot, e);
+}
+
+int main() {
+	quickSort(0,9);
+	for (int i=0; i < 10; i++) {
+		printf("%d ", target[i]);
+	}
+}
+```
+
+- 분할정복(divide and conquer)알고리즘을 기반이다. 그러나 분할과 정렬(정복)이 명확히 나눠진 병합정렬과는 달리, 퀵 정렬은 분할하며 동시에 피벗을 기준으로 정렬하기 때문에 분할이 다 끝난 시점에 정렬이 다 끝나 있다.
+
+###### 성능
+
+|구분|최선 성능|최악 성능|평균 성능|
+|---
+|선택정렬|nlgn|n^2|nlgn|
+
+- 기본적인 nlng의 성능을 보여주지만, ** 입력 데이터가 정렬이 되어있는 경우 피봇의 위치에 따라 제 성능을 보여주지 못하고 n^2 번 연산 ** 하게된다.(피벗이 정확하게 데이터를 2 덩어리로 분할할 수 있어야 n이 아닌 log 만큼 연산하기 때문.)
+
+- 따라서 피봇의 위치가 퀵 정렬의 성능을 좌우하는데, 이를 결정하는 방법은 난수분할, 중위법 등이 있다고 한다.
+
+###### 총평
+
+- 멀리있는 값들끼리 교환이 일어나기 때문에 안전성은 없다.
+- 
+- 데이터의 정렬 상태에 따라 성능의 영향을 받기 때문에 개인적으로 다른 nlgn 정렬보다 좋지 못한 것으로 알고 있었는데, 분할한 공간을 참조할 때 cpu 캐시의 히트율이 높아 컴퓨터 아키텍처에서 효율적으로 동작하기 때문에 ** 다른 nlgn 알고리즘에 비해 훨씬 빠르게 동작 ** 한다고 한다. 보다 자세한 내용은 [퀵정렬 - 위키백과](https://ko.wikipedia.org/wiki/%ED%80%B5_%EC%A0%95%EB%A0%AC) 참고하면 좋을 것 같다.
+
+
+### 참고
+
+[퀵정렬 - 위키백과](https://ko.wikipedia.org/wiki/%ED%80%B5_%EC%A0%95%EB%A0%AC)
