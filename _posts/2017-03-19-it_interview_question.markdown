@@ -23,15 +23,15 @@ tags:
 
 Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 손으로 작성할 수 있느냐가 중요한 것 같다. 면접장에서도 손코딩을 보는 회사가 더러 있으니까, 여유가 있다면 연습장에 손으로 써보면서 연습해보자.
 
-1. [다양한 방식으로 Binary Search 구현하기](https://dodo4513.github.io/2017/03/19/binary_search/)
+1. [알고리즘 해법에 대한 체계적인 접근과 자주하는 실수들](https://dodo4513.github.io/2017/04/13/algorithm_traning/)
 
-2. [atoi, itoa, memcpy 구현 하기](https://dodo4513.github.io/2017/03/25/atoi_itoa_memcpy/)
+2. [다양한 방식으로 Binary Search 구현하기](https://dodo4513.github.io/2017/03/19/binary_search/)
 
-3. [선택(Selection) 정렬, 삽입(Insertion) 정렬, 버블(Bubble) 정렬, 쉘(Shell) 정렬 예제 및 정리](https://dodo4513.github.io/2017/03/26/sort_1/)
+3. [atoi, itoa, memcpy 구현 하기](https://dodo4513.github.io/2017/03/25/atoi_itoa_memcpy/)
 
-4. [합병(Merge) 정렬, 퀵(Quick) 정렬 예제 및 정리](https://dodo4513.github.io/2017/04/09/sort_2/)
+4. [선택(Selection) 정렬, 삽입(Insertion) 정렬, 버블(Bubble) 정렬, 쉘(Shell) 정렬 예제 및 정리](https://dodo4513.github.io/2017/03/26/sort_1/)
 
-
+5. [합병(Merge) 정렬, 퀵(Quick) 정렬 예제 및 정리](https://dodo4513.github.io/2017/04/09/sort_2/)
 
 ###### Web
 
