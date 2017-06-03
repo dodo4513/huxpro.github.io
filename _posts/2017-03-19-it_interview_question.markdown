@@ -35,12 +35,90 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 
 ###### Web
 
+1. Web 서버와 Web Application 서버란 무엇일까?
+
+2. HTML5
+
+3. Cookie, Session
+
+4. Web Socket
+
+5. 동기, 비동기, 블로킹, 논블로킹
+
+6. HTTP, HTTPS
+
+7. REST API
+
+8. Ajax와 비동기
+
+9. Front-end 성능 최적화 하기
+
 ###### Network
+
+1. 빅엔디안과 리틀엔디안
+
+2. Port의 개념과 Well-known Port
+
+3. TCP와 UDP
+
+4. IPv4
+
+5. 공인 IP, 사설 IP, 고정 IP, 유동 IP
+
+6. Subnet Mask
+
+7. DNS
+
+8. OSI-7 계층
+
+9. C의 Socket 함수
 
 ###### OS
 
+1. Deadlock
+
+2. CPU 스케줄링
+
+3.Process와 Thread
+
+4. Race Condition
+
 ###### JAVA
+
+1. Java의 특징
+
+2. Primitive Type과 Reference Type
+
+3. Static
+
+4. Generic Class
+
+5. Multi Thread
+
+6. Synchronized와 Volatile
+
+7. Garbage Collection
+
+8. String Class
+
+9. Call by value, reference
 
 ###### DB
 
+1. Index
+
+2. Transaction
+
+3. Normalization
+
+4. ERD(Entity-Relation Diagram)
+
+5. 기본적인 SQL
+
+6. Join
+
 ###### ETC
+
+1. MVC 개발방법론
+
+2. Node.js
