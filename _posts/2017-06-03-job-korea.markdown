@@ -1,0 +1,12 @@
+---
+layout:     post
+title:      "잡코리아 방송 출연 후기"
+subtitle:   "보이는 취업 on-air"
+date:       2017-6-13
+author:     "Xavy"
+catalog:    true
+tags:
+    - Interview
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7hbLkKYUNF0" frameborder="0" allowfullscreen></iframe>
