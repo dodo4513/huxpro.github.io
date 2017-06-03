@@ -73,13 +73,15 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 
 9. C의 Socket 함수
 
+10. 부하분산 처리
+
 ###### OS
 
 1. Deadlock
 
 2. CPU 스케줄링
 
-3.Process와 Thread
+3. Process와 Thread
 
 4. Race Condition
 
@@ -102,6 +104,14 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 8. String Class
 
 9. Call by value, reference
+
+10. Spin lock, Busy Waiting
+
+11. memory 영역
+
+12. 추상화와 다형성
+
+13. 상속과 조립
 
 ###### DB
 
