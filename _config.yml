@@ -87,7 +87,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "흔한만두의 IT노트",
-        href: "http://mandoitnote.tistory.com/"
+        title: "Dorothy Koo",
+        href: "https://www.gitbook.com/@dorothy-koo"
     }
 ]
