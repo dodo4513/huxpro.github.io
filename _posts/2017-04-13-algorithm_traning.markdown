@@ -77,4 +77,4 @@ tags:
 
 ### 참고
 
-[알고리즘 문제 해결 전략 ](http://book.naver.com/bookdb/book_detail.nhn?bid=7058764)
+[알고리즘 문제 해결 전략 - yes24](http://book.naver.com/bookdb/book_detail.nhn?bid=7058764)

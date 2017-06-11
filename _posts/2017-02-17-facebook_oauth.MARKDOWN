@@ -19,7 +19,7 @@ Facebook 로그인을 구현하는 가장 쉽고 편한 방법은 Facebook이 �
 ###### 전체적인 흐름
 
 전체적인 Oauth 인증 흐름은 아래와 같다.
-<img class="shadow" src="/img/my-post/2/oauth_flow.png" alt="oauth_flow">
+<img class="shadow" src="/img/my-post/20170212_oauth/oauth_flow.png" alt="oauth_flow">
 이미지 출처:[Linked in OAuth token processing using DataPower® IDG - Part 1: OAuth 2.0 basics & DataPower® OAuth Support](https://www.linkedin.com/pulse/oauth-token-processing-using-datapower-idg-part-1-20-julian-smiles)
 
 - - -
@@ -29,7 +29,7 @@ Facebook 로그인을 구현하는 가장 쉽고 편한 방법은 Facebook이 �
 [Facebook for developers - app 만들기](https://developers.facebook.com/apps/)
 
 위 url을 따라가보면 App을 만들 수 있다. 적당히 만들면 아래와 같은 화면을 볼 수 있다. 이 때 `앱 ID와 앱 시크릿 코드`는 나중에 사용해야하니 잘 챙겨 두면된다..
-<img class="shadow" src="/img/my-post/2/app_id_pw.png" alt="check app id">
+<img class="shadow" src="/img/my-post/20170212_oauth/app_id_pw.png" alt="check app id">
 
 - - -
 

@@ -27,7 +27,7 @@ Collection Framework는 최초 아래와 같은 목표를 가지고 디자인되
 
 ### Iterable, Collection, List, Queue, Set, Map 인터페이스들
 
-<img class="shadow" alt="java collection interface" src="/img/my-post/4_java_collection/1_interface.png" >
+<img class="shadow" alt="java collection interface" src="/img/my-post/20170304_java_collection/1_interface.png" >
 
 위에서 인터페이스간의 화살표는 상속을 의미한다.
 각각의 인터페이스를 [Java docs](https://docs.oracle.com/javase/8/docs/api/)에 정의된 내용을 바탕으로 살펴보자.
