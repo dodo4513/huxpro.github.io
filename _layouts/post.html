@@ -89,12 +89,8 @@ comments: true
 
                 {{ content }}
 
-                {% for tag in site.tags %}
-                <div class="one-tag-list">1
-                    <span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
-                        <span class="tag-text">{{ tag[0] }}</span>
-                    </span>2
-                </div>
+                {% for tag in site.sibling %}
+                <span>{{ tag[0] }}</span>
                 {% endfor %}
                 
                 <div style="width:800px; align:center;">
