@@ -88,6 +88,14 @@ comments: true
 				<!-- Post Container -->
 
                 {{ content }}
+
+                {% for tag in site.tags %}
+                <div class="one-tag-list">1
+                    <span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
+                        <span class="tag-text">{{ tag[0] }}</span>
+                    </span>2
+                </div>
+                {% endfor %}
                 
                 <div style="width:800px; align:center;">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

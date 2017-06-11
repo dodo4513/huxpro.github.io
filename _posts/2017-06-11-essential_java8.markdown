@@ -2,9 +2,10 @@
 layout:     post
 title:      "Java 8을 눈여겨봐야 하는 이유"
 subtitle:   "자바 8 인 액션"
-date:       2017-6-13
+date:       2017-6-11
 author:     "Xavy"
 catalog:    true
+sibling:    a
 tags:
     - Java
     - Java In Action
