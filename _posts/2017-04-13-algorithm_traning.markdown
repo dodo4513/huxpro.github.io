@@ -5,7 +5,6 @@ subtitle:   "알고리즘 면접이나 대회 전 한번 읽어보면 좋을 만
 date:       2017-4-13
 author:     "Xavy"
 catalog:    true
-sibling:    a
 tags:
     - Algorithm
     - Interview

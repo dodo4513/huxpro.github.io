@@ -5,7 +5,6 @@ subtitle:   "자바 8 인 액션"
 date:       2017-6-11
 author:     "Xavy"
 catalog:    true
-sibling:    a
 tags:
     - Java
     - Java In Action
@@ -24,7 +23,7 @@ tags:
 책의 전반적인 내용을 내가 다시 볼 목적으로 관심있는 부분만 정리해 두려고 한다. 
 더욱 자세히 공부하고 싶다면 책을 읽어보길 바란다!
 
-### 1. Java 8을 구성하는 핵심적인 사항
+### Java 8을 구성하는 핵심적인 사항
 
 ###### 간결한 코드
 
@@ -55,7 +54,7 @@ inventory.sort(comparing(Apple::getWeight));
 처음에는 Java 8의 소스가 기괴하게 느껴졌는데, 알면 알수록 직관적이고 간결한 표현인것 같다.
 한번 알고나니 이제는 아래 버전으로는 프로젝트를 할 수 없을 것만 같다.  
  
-###### Multi-core processor 프로세서의 간단한 활용
+###### Multi-core processor의 간단한 활용
 
 두 개의 실행 흐름, 성능 향상 등을 위해선 Thread를 고려해볼 수 있다. 하지만 Thread를 사용하면 별의 별 골치아픈 문제가 발생한다.
 동시에 실행될 가능성이 있는 로직은 Stateless(무상태) 방식이 되던지, 락을 통해 스레드 간의 순서를 제어해줘야한다.
@@ -69,6 +68,7 @@ inventory.sort(comparing(Apple::getWeight));
 Java 8에서도 새롭고 단순한 방법으로 병렬 실행을 새로운 Stream API를 제공한다. 
 마치 DB의 SQL을 작성하는 것 처럼 고수준의 언어로 동작을 기술하면 최적의 저수준 실행 방법으로 최적화해 실행되는 방식으로 동작한다.
 물론 몇 가지 규칙은 지켜야하긴 하는데, 무겁고 에러를 자주 일으키는 Syncronized 키워드를 사용하는 것 보단 좋을 것이다. 
+
 
 ### 참고
 
