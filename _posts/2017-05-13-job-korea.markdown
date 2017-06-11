@@ -2,7 +2,7 @@
 layout:     post
 title:      "잡코리아 방송 출연 후기"
 subtitle:   "보이는 취업 on-air"
-date:       2017-6-13
+date:       2017-5-13
 author:     "Xavy"
 catalog:    true
 tags:
