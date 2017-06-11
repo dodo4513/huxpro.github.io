@@ -33,6 +33,8 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 
 5. [합병(Merge) 정렬, 퀵(Quick) 정렬 예제 및 정리](https://dodo4513.github.io/2017/04/09/sort_2/)
 
+6. 유명 알고리즘들 구현하기
+
 ###### Web
 
 1. Web 서버와 Web Application 서버란 무엇일까?
