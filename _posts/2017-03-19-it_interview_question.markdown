@@ -37,7 +37,7 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 
 ###### Web
 
-1. Web 서버와 Web Application 서버란 무엇일까?
+1. [Web 서버와 WAS(Web Application Server)의 역할과 나눠진 이유](https://dodo4513.github.io/2017/06/18/server_architecture/)
 
 2. HTML5
 
@@ -134,3 +134,7 @@ Algorithm은 원리를 이해하는 것도 중요하지만, IDE 도움 없이 �
 1. MVC 개발방법론
 
 2. Node.js
+
+3. UML
+
+4. Spring Framework
