@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "변화하는 요구사항에 대응하는 유연한 코드 - 자바8 Lambda"
+title:      "변화하는 요구사항에 대응하는 유연한 코드 - java8 Lambda"
 subtitle:   "동작 파라미터화 코드를 전달하기"
 date:       2017-6-18
 author:     "Xavy"
@@ -26,6 +26,10 @@ tags:
 ###### Java in Action과 관련된 다른 포스팅들
 
 1. [Java8을 눈여겨봐야하는 이유](https://dodo4513.github.io/2017/06/11/essential_java8/)
+
+2. 변화하는 요구사항에 대응하는 유연한 코드 - java8 Lambda
+
+3. [람다와 함수형 인터페이스](https://dodo4513.github.io/2017/06/25/lambda_1_java8/)
 
 ### 변화하는 요구사항에 대응하는 유연한 코드 작성하기
 

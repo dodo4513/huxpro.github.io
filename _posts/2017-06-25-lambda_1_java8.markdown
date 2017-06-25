@@ -1,0 +1,124 @@
+---
+layout:     post
+title:      "람다와 함수형 인터페이스"
+subtitle:   "자바8의 람다 표현식에 대해 알아보자."
+date:       2017-6-25
+author:     "Xavy"
+catalog:    true
+tags:
+    - Java
+    - Java In Action
+---
+
+### 시작하기 전에
+
+ 개발을 하다보면, 자바8 관련 소스를 많이 본다. 주로 Lambda와 Stream 관련 문법들인데 소스를 보고 있으면 기존의 것들과 비교해 정말 좋은 것 같다.
+보통 List 데이터를 가지고 어떤 일을 할 때, 보통은 어떻게 순회하는 할지 보다는 하나하나의 데이터를 어떻게 처리할지가 더 중요한 관심사인데, Stream을 사용하면 아주 깔끔하게 처리할 수 있다. 
+
+그래서 Java 8에서 추가된 것들을 공부하고 싶은데, 짧은 영어 실력으로 원문을 보기엔 아직은 불편해서 책을 찾아보게 되었다.
+
+<img class="shadow" src="/img/my-post/book_image/java8_action.PNG" alt="java8">
+
+위 책은 Java의 Lambda, Stream, Functional Programming과 관련된 책으로 내용이 좋은 것 같다.
+책의 전반적인 내용을 내가 다시 볼 목적으로 관심있는 부분만 정리해 두려고 한다. 
+더욱 자세히 공부하고 싶다면 책을 읽어보길 바란다! 해당 포스트의 내용은 `3장 람다 표현식`을 보면 된다.
+
+###### Java in Action과 관련된 다른 포스팅들
+
+1. [Java8을 눈여겨봐야하는 이유](https://dodo4513.github.io/2017/06/11/essential_java8/)
+
+2. [변화하는 요구사항에 대응하는 유연한 코드 - 자바8 Lambda](https://dodo4513.github.io/2017/06/18/operation_parameterization_java8/)
+
+3. 람다와 함수형 인터페이스
+
+### 람다식
+
+> 람다식, 또는 람다 함수는 프로그래밍 언어에서 사용되는 개념으로 익명 함수(Anonymous functions)를 지칭하는 용어이다. 
+> 프로그래밍 언어학적으로 파고들면 이것만 한 달 이상 배우는 경우도 많으며, 실제로 여러 대학교들에서 사용하는 프로그래밍 언어 교재에서도 꽤나 많은 분량을 차지하는 개념이다. 
+> 실무적으로는 코드의 간결함, 지연 연산을 통한 퍼포먼스 향상, 그리고 기존 이터레이션 관련 코드를 구현하는 데 있어 불필요한 부분들을 제거할 수 있다는 점에서 비교적 중요하게 다루어지고 있다. 
+> 람다식은 주로 고차 함수에 인자(argument)로 전달되거나 고차 함수가 돌려주는 결과값으로 쓰인다.
+
+###### 1. 람다란 무엇인가?
+
+자바8에서 추가된 람다 표현식은 메서드로 전달할 수 있는 익명 함수를 단순화한 것이며, 아래의 4가지 특징을 가진다.
+
+- 익명 : 보통의 메서드와는 달리 이름이 없다.
+- 함수 : 메서드처럼 특정 클래스에 종속되지 않으므로 익명이라 표현한다.
+- 전달 : 람다표현식을 메서드의 인수로 전달하거나 변수로 저장할 수 있다.
+- 간결성 : 기존의 익명 클래스처럼 많은 자질구레한 코드를 구현할 필요가 없다.
+
+ 커스텀 Comparator 객체를 구현하는 것으로 람다를 어떻게 사용하는지 살펴보자. 
+
+기존의 소스는 아래와 같다. 익명함수로 Comparator을 선언하과 동시에 compare()를 정의해 주고 있다.
+```java
+Comparator<Apple> byWeight = new Comparator<Apple>(){
+    public int compare(Apple a1, Apple a2) {
+        return a1.getWeight().compareTo(a2.getWeight());
+    }
+}
+```
+
+다음은 람다를 이용한 소스다. 자세한 람다 문법에 대한 이해는 잠시 뒤로 미루고, 사과의 무게를 비교하는데 필요한 코드만을 전달하는 점에 주목하자.
+```Java
+Comparator<Apple> byWeight = (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight());
+```
+
+어떻게 두 사과를 비교하는지에 필요한 로직만 전달함으로써, 더 간결한 코드를 작성할 수 있다.
+
+이처럼 람다표현식을 사용하면 compare 메서드의 바디를 직접 전달하는 것 처럼 코드를 전달할 수 있는데, 아래에서 위 구문에 대해 더 자세히 알아보자.
+
+###### 2. 함수형 인터페이스.
+
+먼저 **함수형 인터페이스**를 알아야 한다. 함수형 인터페이스란 추상 메소드가 **단 1개**인 인터페이스를 뜻하는데, 아까 예로 나왔던 Comparator를 살펴보자.
+
+<img class="shadow" src="/img/my-post/20170625_lambda_1_java8/comparator.PNG" alt="comparator">
+
+[Java docs](https://docs.oracle.com/javase/8/docs/api/)에서 Comparator 인터페이스를 살펴보면 Funcational Interface라 정의된 부분을 볼 수 있다. 
+해당 인터페이스는 int compare(T o1, T o2)의 추상 메소드만을 들고 있으므로, 함수형 인터페이스다.
+
+`람다 표현식은 함수형 인터페이스의 추상 메서드 구현을 직접 전달`할 수 있다. 
+그렇기 떄문에 `람다 표현식을 함수형 인터페이스의 인스턴스로 취급`할 수 있다. 
+예시로 Comparator<Apple byWeight를 인스턴스 하는 두 구문을 다시 살펴보자.
+
+```java
+//익명 함수로 Comparator<T> 인터페이스를 구현.
+Comparator<Apple> byWeight = new Comparator<Apple>(){
+    public int compare(Apple a1, Apple a2) {
+        return a1.getWeight().compareTo(a2.getWeight());
+    }
+}
+// 람다표현식으로 Comparator<T> 인터페이스를 구현.
+Comparator<Apple> byWeight = (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight());
+```
+
+###### 3. 람다 표현식
+
+Comparator<T> 같이 함수형 인터페이스를 인스턴스 할 때, 람다표현식으로도 가능하다는 것을 알았으니, 이제는 자세한 문법을 알아보자.
+
+```java
+(Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight());
+```
+위 람다표현식의 시그니처는 `두 개의 Apple을 파라미터로 받고 int를 반환`하는 함수를 가르킨다.(화살표를 기준으로 파라미터와 반환 값으로 구분) 
+이는 함수형 인터페이스인 Comparator의 단 하나뿐인 추상 메소드인 `int compare(T o1, T o2)`의 시그니처와 일치하기 때문에 Comparator<T> 변수에 담을 수 있는 것이다.
+
+이렇듯 함수형 인터페이스의 추상 메소드 시그니처와 람다 표현식의 시그니처를 맞추면 된다. 
+다른 함수형 인터페이스인 Runnable을 통해 람다 표현식을 한번 더 만들어보자.
+
+<img class="shadow" src="/img/my-post/20170625_lambda_1_java8/runnable.PNG" alt="runnable">
+
+Runnable은 `run() 이라는 하나의 추상 메소드를 가지고 있는 함수형 인터페이스`이다.
+
+run()의 시그니처를 살펴보면 아무 파라미터를 받지 않으며, void를 리턴한다. 따라서 람다 표현식은 아래와 같이 쓰면 된다.
+
+```java
+// sysout은 아무 값을 리턴하지 않으므로 () -> {}; 과 시그니처가 같다.
+Runnable runnable = () -> System.out.println("hello");
+```
+
+### 참고
+
+[자바 8 인 액션 - yes24](http://book.naver.com/bookdb/book_detail.nhn?bid=8883567)
+
+[람다식 - 나무위키](https://namu.wiki/w/%EB%9E%8C%EB%8B%A4%EC%8B%9D)
+
+[Java docs](https://docs.oracle.com/javase/8/docs/api/)

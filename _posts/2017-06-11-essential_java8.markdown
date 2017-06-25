@@ -25,7 +25,11 @@ tags:
 
 ###### Java in Action과 관련된 다른 포스팅들
 
-1. [변화하는 요구사항에 대응하는 유연한 코드 - 자바8 Lambda](https://dodo4513.github.io/2017/06/18/operation_parameterization_java8/)
+1. Java8을 눈여겨봐야하는 이유
+
+2. [변화하는 요구사항에 대응하는 유연한 코드 - java8 Lambda](https://dodo4513.github.io/2017/06/18/operation_parameterization_java8/)
+
+3. [람다와 함수형 인터페이스](https://dodo4513.github.io/2017/06/25/lambda_1_java8/)
 
 ### Java 8을 구성하는 핵심적인 사항
 
