@@ -28,6 +28,8 @@ tags:
 - Publish Over SSH plugin 1.17(jenkins plugin)
 - Jenkins가 설치된 서버가 한대 있고, 웹 서비스가 구동 중인 서버가 따로 한대가 있는 환경임.
 
+- - -
+
 ### 자동 배포하기!
 
 ###### 0 전체적인 자동배포 시나리오
@@ -46,13 +48,17 @@ tags:
 
 7. 서버 환경에 따라 적절히 마무리 작업을 하면 끝!
 
+- - -
+
 ###### 1 Jenkins 플러그인 설치
 
 `Jenkins 관리 > 플러그인 관리` 에서 아래의 두 플러그인을 설치해야 한다. 이 둘을 설치하지 않을 경우 특정 메뉴가 보이지 않으니 꼭 설치해야 한다.
  
-- GitHub plugin : Github의 특정 branch의 푸시 이벤트가 발생했을 때 알림을 받기 위해 필요.
+- **GitHub plugin** : Github의 특정 branch의 푸시 이벤트가 발생했을 때 알림을 받기 위해 필요.
 
-- Publish Over SSH plugin : Jenkins가 빌드한 war 파일을 remote 서버로 보내주기 위해 필요.
+- **Publish Over SSH plugin** : Jenkins가 빌드한 war 파일을 remote 서버로 보내주기 위해 필요.
+
+- - -
 
 ###### 2 Jenkins job 이 특정 branch의 푸시 이벤트 받기
 
@@ -60,6 +66,8 @@ GitHub plugin은 jenkins가 GitHub의 hook을 받을 수 있도록 수동 모드
 수동 모드는 사용자가 Git Repository setting로 가서 Hooks & services을 직접 등록해 사용하는 것이고, 
 자동 모드는 사용자의 GitHub OAuth 토큰을 이용해 Jenkins가 자동으로 Hooks & services를 등록한다. 
 우리는 `자동 모드를 사용`하겠다.
+
+- - -
 
 ###### 2 - 1 GitHub OAuth 등록
  
@@ -71,7 +79,7 @@ GitHub plugin은 jenkins가 GitHub의 hook을 받을 수 있도록 수동 모드
 API URL : 자신이 사용하는 GitHub 주소에 /api/v3를 붙이면 된다.
 
 그리고 Credentials옆의 Add를 눌러 자신의 GitHub Personal access 토큰을 입력한다.
-이 토큰은 `GitHub 계정의 Setting > Personal access tokens`에서 생성하면 된다. 이 때 토큰은 `admin:repo_hook`의 권한이 있어야 한다.
+이 토큰은 `자신의 GitHub 계정으로 가서 Setting > Personal access tokens`에서 생성하면 된다. 이 때 토큰은 `admin:repo_hook`의 권한이 있어야 한다.
 
 <img class="shadow" src="/img/my-post/20170819_continuous_deployment/2_add.jpg" alt="add">
 
@@ -92,7 +100,6 @@ kind는 Secret text이고 아래의 Secret에 토큰값을 ID와 Description에�
 
 마지막으로 빌드 유발에서 `GitHub hook trigger for GITScm polling` 항목을 선택한다.
 인터넷의 자료를 뒤지다 보면 Build when a change is pushed to GitHub 항목을 선택하라고 안내하는 곳이 많은데, 최신 버전에서는 GitHub hook trigger for GITScm polling로 명칭이 변경되었다.
-명칭 뿐 아니라 사용법도 달라진 것 같다.
 
 <img class="shadow" src="/img/my-post/20170819_continuous_deployment/5_job3.jpg" alt="job3">
 
@@ -106,19 +113,23 @@ kind는 Secret text이고 아래의 Secret에 토큰값을 ID와 Description에�
 
 <img class="shadow" src="/img/my-post/20170819_continuous_deployment/7_hook.jpg" alt="hook">
 
+- - -
+
 ###### 3 빌드
 
 이제 아까 작업한 Job에 빌드도 추가하자(아래는 gradle 프로젝트 예시)
 
 <img class="shadow" src="/img/my-post/20170819_continuous_deployment/8_build.jpg" alt="build">
 
-Jenkins는 빌드 후 war을 `JENKINS_HOME/jobs/$Job_name/workspace`에 저장한다. 
+Jenkins는 빌드 후 war을 `$JENKINS_HOME/jobs/$Job_name/workspace`에 저장한다. 
 우리는 이 파일을 Publish Over SSH plugin을 이용해 remote 서버로 전송할 것이다. 
 해당 플러그인은 ssh 인증을 미리 받아두고 빌드 전후로 명령 혹은 파일을 remote 서버로 전송하는 기능을 가지고 있다. 
 
+- - -
+
 ###### 4 remote 서버로 SSH 통신을 이용해 war 전송하기 
 
-먼저 jenkins에 remote 서버의 ssh 인증을 등록하자. GitHub OAuth token을 입력했던 것 처럼, `젠킨스 메인 > Jenkins 관리 > 시스템 설정`에서 Publish over SSH으로 간다.
+먼저 jenkins에 remote 서버의 ssh 인증을 등록하자. GitHub OAuth token을 입력했던 것 처럼, `Jenkins 관리 > 시스템 설정`에서 Publish over SSH으로 간다.
 
 <img class="shadow" src="/img/my-post/20170819_continuous_deployment/9_ssh_server.jpg" alt="ssh_server">
 
@@ -147,6 +158,8 @@ Remote 서버의 ssh 인증을 등록했으니 Jenkins Job으로 다시 돌아�
 
 잘 입력했는데도 위 스샷처럼 Either Source files, Exec command or both must be supplied라며 에러가 나는 경우도 있는데 이는 특정 버전에서 나는 버그라고 한다. 무시하면 될 것 같다.
 
+- - -
+
 ### 마치며
 
 생각보다 최신 자료도 많이 없고, 회사에서 세팅을 하다보니 정책적으로 안되는 건지, 내가 세팅을 잘못한 건지 아리송한 경우가 많아 힘들었다.
@@ -154,7 +167,10 @@ Remote 서버의 ssh 인증을 등록했으니 Jenkins Job으로 다시 돌아�
 
 잘못된 점이나 애매한 설명이 있다면, 편하게 메일 주세요~ 수정하도록 하겠습니다.
 
+- - -
+
 ### 참고
 
 [Jenkins GitHub Plugin](https://wiki.jenkins.io/display/JENKINS/Github+Plugin)
+
 [Jenkins Publish Over SSH Plgin](https://wiki.jenkins.io/display/JENKINS/Publish+Over+SSH+Plugin)
