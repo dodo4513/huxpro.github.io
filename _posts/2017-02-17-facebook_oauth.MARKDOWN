@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "Facebook Oauth 직접 구현하기"
-subtitle:   "Facebook Oauth login flow를 직접 구현해보자."
+title:      "Facebook OAuth 직접 구현하기"
+subtitle:   "Facebook OAuth login flow를 직접 구현해보자."
 date:       2017-2-12
 author:     "Xavy"
 catalog:    true
 comments: true
 tags:
-    - Oauth
+    - OAuth
     - Spring
 ---
 
