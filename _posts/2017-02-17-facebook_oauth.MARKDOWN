@@ -16,6 +16,8 @@ Facebook 로그인을 구현하는 가장 쉽고 편한 방법은 Facebook이 �
 
 `Spring 4.3.5 RELEASE + MAVEN` 웹 프로젝트 환경에서 할 것이며, 혹 본 포스트의 내용에 잘못된 점이나 개선할 점이 있다면 알려주세요!
 
+- - -
+
 ###### 전체적인 흐름
 
 전체적인 Oauth 인증 흐름은 아래와 같다.
@@ -161,15 +163,21 @@ private void facebookUserDataLoadAndSave(String accessToken, HttpSession session
 
 Json 형태로 정보가 넘어오고 이를 각자의 서비스에 맞게 이용하면 될 것 같다.
 
+- - -
+
 ### 마치며
 
 Oauth 인증 흐름 이미지가 큰 도움이 되었다. 순서대로 하나하나 따라가며 Facebook 레퍼런스를 참고해 구현하니 해볼만 했다. 레퍼런스가 정말 잘 되있더라. 그러나 기능은 동작하지만 위 방식대로 구현하는 것이 실제로 올바른 방법인지는 좀더 고민해 볼 필요가 있을 것 같다.
+
+- - -
 
 ### 추가한 Maven 라이브러리
 
 [HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient/4.5.2)
 
 [JSONParser, JSONObject](https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1.1) 
+
+- - -
 
 ### 참고
 

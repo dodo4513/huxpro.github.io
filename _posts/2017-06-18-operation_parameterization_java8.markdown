@@ -23,6 +23,8 @@ tags:
 책의 전반적인 내용을 내가 다시 볼 목적으로 관심있는 부분만 정리해 두려고 한다. 
 더욱 자세히 공부하고 싶다면 책을 읽어보길 바란다! 해당 포스트의 내용은 `2장 동작 파라미터화 코드 전달하기`를 보면 된다.
 
+- - -
+
 ###### Java in Action과 관련된 다른 포스팅들
 
 1. [Java8을 눈여겨봐야하는 이유](https://dodo4513.github.io/2017/06/11/essential_java8/)
@@ -31,9 +33,13 @@ tags:
 
 3. [람다와 함수형 인터페이스](https://dodo4513.github.io/2017/06/25/lambda_1_java8/)
 
+- - -
+
 ### 변화하는 요구사항에 대응하는 유연한 코드 작성하기
 
 > 어떤 상황에서 일을 하든 소비자 요구사항은 항상 바뀐다. 시시각각 변하는 사용자의 요구사항에 어떻게 대응해야 할까?
+
+- - -
 
 ###### 1. 동작이 아닌 값으로 요구사항을 전달 받아야 할때 나타나는 한계점
 
@@ -104,6 +110,8 @@ public static List<Apple> filterApplesByWeightAndColor(List<Apple> inventory, St
 또한 위에서 살펴본 소스들은 if 구문을 제외하고는 거의 같다. 
 
 **어떻게 필터링 할 것인지를 정하는 if 구문을 파라미터로 받을 수 있다면 아주 유연한 메소드를 만들 수 있지 않을까??**
+
+- - -
  
 ###### 2. 전략 디자인 패턴을 이용해 유연성을 얻는 방법
 
@@ -138,6 +146,8 @@ List<Apple> heavyApples = filterApples(inventory, new AppleWeightPredicate());
 어떤 Predicate 객체를 넘기느냐에 따라 filterApples의 메소드 동작이 달라진다. 즉 filterApples 메서드의 동작을 파라미터화 한 것이다.
 이 구조는 **각 알고리즘을 캡슐화하는 클래스들을 미리 구현해둔 다음 런타임 시점에 알고리즘을 선택하는 전략 디자인 패턴** 이다.
 
+- - -
+
 ###### 3. 익명 클래스를 이용해 더욱 간결하게 
 
 위 전략 디자인 패턴은 ApplePredicate 인터페이스를 구현하는 여러 클래스를 정의한 다음에 인스턴스화해 사용해야 한다.
@@ -157,6 +167,8 @@ List<Apple> redApples = filterApples(inventory, new ApplePredicate() {
 작성해야할 소스가 전략 디자인 패턴을 이용할 때 보다 많이 줄었다. 
 predicate 다시 사용해야할 일이 없을 때 간단하게 위처럼 구현해 바로 사용할 수 있다.
 위 스타일을 보다 더 좋은 방법은 없을까? 자바8의 Lambda를 이용하면 위 소스를 더 간단하게 표현할 수 있다.
+
+- - -
 
 ###### 4. Lambda 표현식 사용
 
@@ -194,6 +206,8 @@ List<Apple> redApples = filter(inventory, (Apple apple) -> "red".equals(apple.ge
 반면에 자바8의 Lambda를 이용한다면, 아주 간단하게 어떻게 필터가 동작해야하는지만을 간단하게 넘겨줄 수 있다.
 아주 소스가 간결해 졌고, 누가봐도 위 소스는 빨간색 사과만을 가져오는 로직이란걸 한눈에 알아볼 수 있다.
 
+- - -
+
 ### 마치며
 
 메소드의 파라미터에 모든 필요한 속성을 나열하는 것 보단 전략 디자인 패턴, 익명 클래스, Lambda를 이용해 보다 유연한 메소드를 설계 하는 방법에 대해 살펴봤다.
@@ -201,6 +215,8 @@ List<Apple> redApples = filter(inventory, (Apple apple) -> "red".equals(apple.ge
 
 개인적으로 그 중 아주 간결한 소스와 개발 의도를 명확히 표현하는 Lambda 표현식이 인상깊다. 
 Lamda에 대한 자세한 문법은 나중에 알아보기로 하고 해당 포스트는 이것으로 끝! 
+
+- - -
 
 ### 참고
 

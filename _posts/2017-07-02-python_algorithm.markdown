@@ -26,6 +26,8 @@ tags:
 
 제가 이 포스트를 잊어버린게 아니라면, 공부하면서 틈틈히 추가할 예정입니다.
 
+- - -
+
 ### Python으로 알고리즘 시작하기
 
 ###### 1. Hello world 출력
@@ -38,6 +40,8 @@ print("Hello world")
 딱히 import 할 것없이 그냥 `print()`를 사용하면 된다.
 
 ※ print()는 문자열을 출력하고 줄바꿈이 자동으로 일어나게 되는데, 이를 제거하려면 `print("hello world", end="")` 이렇게 사용하면 된다.
+
+- - -
 
 ###### 2. 한줄 단위로 입력 받기
 
@@ -69,6 +73,8 @@ a, b, c = map(int, input().split())
 print(a+b+c) # 6
 ```
 
+- - -
+
 ###### 3. 끝을 모르는 입력 받기
 
 **A.** `sys의 read()`를 이용한다. 해당 함수는 input()처럼 한줄을 읽는 것이 아니라 입력의 끝(EOF)까지 읽는다.
@@ -89,6 +95,8 @@ while True:
     except EOFError:
         break
 ```
+
+- - -
 
 ###### for문 사용하기 
 
@@ -114,6 +122,8 @@ for i, v in enumerate(string):
     print(v, end="는 ")
     print(i, end="번\n") #print 풀는 0번 종이는 1번 가위는 2번
 ```    
+
+- - -
 
 ### 참고
 

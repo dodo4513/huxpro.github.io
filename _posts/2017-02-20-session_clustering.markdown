@@ -31,6 +31,8 @@ Stateless한 HTTP 프로토콜 특징 덕분에, 페이지 이동 간에 로그�
 
 Session 작동 방식 그림에서 볼 수 있듯, Client와 각 Server간에 관계를 맺는 것 이기 때문에, 기본적으로 모든 Web Server의 Session은 각 서버들 끼리 동기화되지 않는다. 따라서 각각 보관되기 때문에 Web Server1에서 로그인을 했는데, 다른 페이지를 Web Server2 요청한다면, Session이 끊어져 로그인이 풀리게 된다.
 
+- - -
+
 ### Session Clustering
 
 위와 같은 문제를 해결하기 위한 방법은 아래와 같은 것들이 있다.
@@ -40,6 +42,7 @@ Session 작동 방식 그림에서 볼 수 있듯, Client와 각 Server간에 �
 3. Sticky Session : [Amazon Elastic Load Balancing Feature: Sticky Session](https://aws.amazon.com/ko/blogs/aws/new-elastic-load-balancing-feature-sticky-sessions/) 참고
 4. 암호화된 Cookie 이용
 
+- - -
 
 ### 참고
 [What is HttpSession?](http://www.studytonight.com/servlet/httpsession.php)

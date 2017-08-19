@@ -23,6 +23,8 @@ Java는 Class 클래스를 통해 런타임 타입정보를 제공한다. 객체
 Class 클래스를 이용하여 런타임에 객체의 타입을 알 수 있으며, 객체 필드의 값을 조회하거나 변경할 수도 있다. 이와 같이
 **런타임에 타입정보를 다루는 것을 Reflection** 이라 하며 java.lang.reflect 패키지에는 다양한 리플랙션과 관련된 API를 제공한다.
 
+- - -
+
 ### Reflection 예제
 
 ###### Main.java
@@ -40,6 +42,8 @@ public class Main {
 	}
 }
 ```
+
+- - -
 
 ###### TargetClass.java
 
@@ -66,6 +70,8 @@ class TargetClass {
 	}
 }
 ```
+
+- - -
 
 ###### Reflection.java
 
@@ -109,6 +115,8 @@ class Reflection {
 }
 ```
 
+- - -
+
 ###### 실행 결과
 
 ```text
@@ -132,6 +140,8 @@ method name : getClass
 method name : notify
 method name : notifyAll
 ```
+
+- - -
 
 ### 참고
 
