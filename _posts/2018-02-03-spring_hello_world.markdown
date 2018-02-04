@@ -32,11 +32,11 @@ tags:
    
 Spring initializer나 Spring project로 만들어서 maven 프로젝트로 만들 수도 있지만, spring 환경을 손으로 구축해 보는 것도 의미가 있겠다 싶어 Maven으로 시작.
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/1_make_maven" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/1_make_maven.png" alt="maven">
  
 적당히 입력해 만들면, 아래와 같이 텅텅빈 디렉토리 구조를 가진 프로젝트가 생성된다.
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/2_make_maven_after" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/2_make_maven_after.png" alt="maven">
 
 - - -
 
@@ -95,7 +95,7 @@ Spring boot의 상위 `parent` 와 변수가 모여있는 `properties`, spring-b
 
 ###### 3. Application.java 생성
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/3_directory_structure" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/3_directory_structure.png" alt="maven">
 
 위 모양으로 Application과 HelloController를 만들어 줄 것이다. 먼저 Application.java를 만들어보자
 
@@ -164,7 +164,7 @@ public class HelloController {
 
 ###### 5. 실행화면 
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/4_browser" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/4_browser.png" alt="maven">
 
 위 까지 세팅하고 돌려보면 원하는 메시지가 아주 잘 뜨는 걸 볼 수 있다.
 
@@ -175,19 +175,19 @@ Spring Boot 프로젝트기 떄문에 web.xml 이니 servlet-context.xml 같은 
 
 앞으로 스터디에서 Java config 를 적극적으로 사용할 생각이라 필요없을 것 같지만, 혹시나 하는 마음에 만들어보기로 했다.
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/5_webxml" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/5_webxml.png" alt="maven">
 
 Project Structure 를 켜서 빨간색 네모를 참고해 추가하면 끝이다. 다만 path 설정이 요상한게 들어있을 텐데 적당히 바꿔준다. 
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/6_path" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/6_path.png" alt="maven">
 
 그리고 아래에 web resource directory 도 설정해주자
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/7_web_resource_directory" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/7_web_resource_directory.png" alt="maven">
 
 아래와 같이 추가되면 끝.
 
-<img class="shadow" src="/img/my-post/20180203_spring_hello_world/8_web_resource_directory_after" alt="maven">
+<img class="shadow" src="/img/my-post/20180203_spring_hello_world/8_web_resource_directory_after.png" alt="maven">
 
 - - -
 
