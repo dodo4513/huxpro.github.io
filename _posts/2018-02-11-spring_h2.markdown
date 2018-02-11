@@ -55,10 +55,10 @@ tags:
 본격적으로 시작하기 전에 H2가 무엇인지 검색해 봤다.
 H2 공식 사이트에 가보면 아래와 같이 소개하고 있다.
 
-Very fast, open source, JDBC API
-Embedded and server modes; in-memory databases
-Browser based Console application
-Small footprint: around 1.5 MB jar file size
+- Very fast, open source, JDBC API
+- Embedded and server modes; in-memory databases
+- Browser based Console application
+- Small footprint: around 1.5 MB jar file size
 
 [H2 Database Engine](http://www.h2database.com/html/main.html)
 
@@ -103,7 +103,7 @@ Spring Boot 는 Dependency versions 뿐만 아니라, 수많은 Spring 환경 �
 [Spring docs - Appendix A. Common application properties](https://docs.spring.io/spring-boot/docs/1.5.10.RELEASE/reference/htmlsingle/#common-application-properties)
 
 살펴보면 오만가지 설정이 다 들어가 있는걸 볼 수 있다. 우리에게 필요한 `spring.h2`에 대한 설정도 이미 들어가 있다.
-단 h2의 웹 콘솔 사용 설정(spring.h2.console.enabled)은 **디폴트가 false** 라서 요건만 true로  변경해주면 된다.
+단 h2의 웹 콘솔 사용 설정(spring.h2.console.enabled)은 **default가 false** 라서 요건만 true로  변경해주면 된다.
 
 application.yml, application.properties 등을 이용해 저 설정들을 커스텀할 수 있는데, 난 application.yml 을 이용했다.
 
@@ -115,7 +115,7 @@ resources 패키지 밑에 application.yml 파일만 만들어두면 spring boot
 
 <img class="shadow" src="/img/my-post/20180211_spring_h2/5_result.JPG" alt="result">
 
-'/xavy'로 접속하면 H2 로그인 화면을 볼 수 있을 것이다. 만약 spring.h2.console.path 를 명시하지 않았다면, default 인 /h2-console 로 접속하면 된다. 
+'/xavy'로 접속하면 H2 로그인 화면을 볼 수 있을 것이다. 만약 spring.h2.console.path 를 명시하지 않았다면, **default path 인 /h2-console 로 접속**하면 된다. 
 
 - - -
 
@@ -153,7 +153,7 @@ public class H2Configuration {
 yml 로 세팅하는 것과 java 로 세팅하는 것, 둘 중 뭐가 좋다기 보다는 장단점이 있는 것 같은데 난 아직은 yml 이 더 편한것 같다.
 
 java로 세팅하는게 좋다는 말은 어디서 많이 들은 것 같은데, 아직 체감하지는 못하겠다. 
-앞으로의 스터디도 java config 를 적극적으로 사용하면서 차차 알아보자.  
+앞으로의 스터디도 java config 를 적극적으로 사용해보면서 차차 알아보자.  
 
 - - -
 
