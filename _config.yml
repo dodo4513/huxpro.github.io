@@ -85,9 +85,9 @@ service-worker: true
 
 
 # Friends
-friends: [
-    {
-        title: "Dorothy Koo",
-        href: "https://www.gitbook.com/@dorothy-koo"
-    }
-]
+#friends: [
+#    {
+#        title: "Dorothy Koo",
+#        href: "https://www.gitbook.com/@dorothy-koo"
+#    }
+#]
