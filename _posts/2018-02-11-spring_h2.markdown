@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Spring boot H2 DB 시작 예제"
+title:      "Spring boot H2 DB 예제"
 subtitle:   "부트 기반으로 H2 디비를 세팅해보자!"
 date:       2018-2-11
 author:     "Xavy"
@@ -16,7 +16,9 @@ tags:
 
 1. [Intellij Spring boot Hello world 예제](https://dodo4513.github.io/2018/02/03/spring_hello_world/)
 
-2. [Spring boot H2 DB 시작 예제](https://dodo4513.github.io/2018/02/11/spring_h2/)
+2. [Spring boot H2 DB 예제](https://dodo4513.github.io/2018/02/11/spring_h2/)
+
+3. [Spring boot H2 DB DAO 예제](https://dodo4513.github.io/2018/04/01/spring_h2_init/)
 
 위 포스팅의 결과물들은 아래의 깃에서 각 브랜치로 관리하고 있습니다!
 
@@ -162,7 +164,7 @@ java로 세팅하는게 좋다는 말은 어디서 많이 들은 것 같은데, 
 드디어 토비 스프링 1장의 초난감 DAO 를 세팅할 환경 구성이 끝난 것 같다. 
 하나하나 구성하려니 진행 속도가 아주 느리긴 한데, 이것저것 알아가는 것도 많아 좋은듯. 
 
-위 소스는 아래의 Git에 올려두었습니다. 02_h2_database 브랜치를 참고하시면 됩니다.
+위 소스는 아래의 Git에 올려두었습니다. **02_h2_database 브랜치를 참고**하시면 됩니다.
 
 [https://github.com/dodo4513/xavyspring/tree/02_h2_database](https://github.com/dodo4513/xavyspring/tree/02_h2_database)
 

@@ -16,7 +16,9 @@ tags:
 
 1. [Intellij Spring boot Hello world 예제](https://dodo4513.github.io/2018/02/03/spring_hello_world/)
 
-2. [Spring boot H2 DB 시작 예제](https://dodo4513.github.io/2018/02/11/spring_h2/)
+2. [Spring boot H2 DB 예제](https://dodo4513.github.io/2018/02/11/spring_h2/)
+
+3. [Spring boot H2 DB DAO 예제](https://dodo4513.github.io/2018/04/01/spring_h2_init/)
 
 위 포스팅의 결과물들은 아래의 깃에서 각 브랜치로 관리하고 있습니다!
 
@@ -213,7 +215,7 @@ Project Structure 를 켜서 빨간색 네모를 참고해 추가하면 끝이�
 
 그래도 이것저것 알게된게 많아 한 번쯤은 꼭 해보면 좋을 것 같다. 
 
-위 소스는 아래의 Git에 올려두었습니다. 01_hello_world 브랜치를 참고하시면 됩니다.
+위 소스는 아래의 Git에 올려두었습니다. **01_hello_world 브랜치를 참고**하시면 됩니다.
 
 [https://github.com/dodo4513/xavyspring/tree/01_hello_world](https://github.com/dodo4513/xavyspring/tree/01_hello_world)
 
