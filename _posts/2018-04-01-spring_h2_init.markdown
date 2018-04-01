@@ -46,12 +46,7 @@ tags:
 
 ### 본 예제와 관련된 토비의 스프링 목차
 
-토비의 스프링(54p ~ 59p)
-    1장 오브젝트와 의존관계
-        1. 초난감 DAO
-            1. User
-            2. UserDao
-            3. main()을 이용한 DAO 테스트 코드
+<img class="shadow" src="/img/my-post/20180401_spring_db_init/0.book.JPG" alt="book">
 
 - - -
 
@@ -72,7 +67,7 @@ Jpa의 entity를 사용하기 위해서는 **pom.xml**에 위 소스를 추가�
 이제 모델을 정의해야 하는데 이는 책 55p에 보면 Users의 명세가 있다.
 
 |필드명|타입|설정|
-|---
+|---|---|---|
 |Id|VARCHAR(10)|Primary Key|
 |Name|VARCHAR(20)|Not Null|
 |Password|VARCHAR(20)|Not Null|
