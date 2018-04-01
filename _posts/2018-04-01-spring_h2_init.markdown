@@ -28,10 +28,10 @@ tags:
 
 ### 시작하기 전에
 
-해당 시리즈의 마지막 포스트는 2.11일에 작성되었고 약 한 달반 만에 다음 진도를 나가게 됐다.
-미리 작성해둔 entity의 ddl create 해주는 부분이 이상하게 안되더라.
+해당 시리즈의 마지막 포스트는 2.11일에 작성되었고 약 한 달 반 만에 다음 진도를 나가게 됐다.
+미리 작성해둔 entity의 ddl create 해주는 부분이 이상하게 안 되더라.
 
-그래서 자괴감에 빠져 허송세월 보내다 오늘 다시해보니 web console의 jdbc 주소를 잘못 써서 테이블이 안보이는 문제였다 ㅜㅜ 
+그래서 자괴감에 빠져 허송세월 보내다 오늘 다시 해보니 web console의 jdbc 주소를 잘못 써서 테이블이 안 보이는 문제였다. ㅜㅜ 
 자세한 내용은 아래에서 다시 언급하겠다. 다시 시작!
 
 **지난 [Spring boot H2 DB 시작 예제](https://dodo4513.github.io/2018/02/11/spring_h2/)의 소스 기반으로 이어서 개발한다.**
@@ -121,11 +121,11 @@ public class User {
 
 <img class="shadow" src="/img/my-post/20180401_spring_db_init/3.console.JPG" alt="console">
 
-**단 저 JDBC url을 꼭 확인하자 ㅜㅜ 1달 넘게 저 주소를 잘못 입력한걸 모르고 삽질만 했다..**   
+**단 저 JDBC url을 꼭 확인하자 ㅜㅜ 1달 넘게 저 주소를 잘못 입력한 걸 모르고 삽질만 했다..**   
 
 <img class="shadow" src="/img/my-post/20180401_spring_db_init/4.console_result.JPG" alt="console_result">
 
-위와 같이 빌드 후 console을 확인 했을 때 테이블이 생성되 있다면 성공!
+위와 같이 빌드 후 console을 확인했을 때 테이블이 생성돼 있다면 성공!
 
 - - -
 
@@ -187,7 +187,7 @@ public class UserDao {
 
 ### 3. Main()을 이용한 DAO 테스트 코드
 
-스프링에서 main()은 예전에 같이 살펴봤듯이 Application.class에 있다.
+스프링에서 main()은 예전에 같이 살펴봤듯이 **Application.class**에 있다.
 
 그 안에 58p ~ 59p의 소스를 그대로 넣어주면 된다.
 
@@ -233,14 +233,14 @@ public class Application {
 
 ### 마치며
 
-아주 간단한 주제로 오랫동안 삽질한게 너무 부끄럽다...
+아주 간단한 주제로 오랫동안 삽질한 게 너무 부끄럽다...
 
 <img class="shadow" src="/img/my-post/20180401_spring_db_init/7.etc.jpg" alt="success">
 
 조금 변명을 하자면, 위 소스를 빌드하면 빌드 로그 중에 저 **HHH000206: hibernate.properties not found**가 있다.
-저거에 낚여서 무언가 세팅이 안되서 table이 자동생성이 안되는 문제로 착각하고 오만가지 세팅을 다 해봤다...
+저거에 낚여서 무언가 세팅이 안 되서 table이 자동생성이 안되는 문제로 착각하고 오만가지 세팅을 다 해봤다...
 
-그러다 불현들 JDBC의 url에서 설마 잘못된건 아닌가 생각했고, 스프링 default url 값을 넣으니 잘 되더라 ㅜㅜㅜ
+그러다 불현들 JDBC의 url에서 설마 잘못된 건 아닌가 생각했고, 스프링 default url 값을 넣으니 잘 되더라 ㅜㅜㅜ
 
 위 소스는 아래의 Git에 올려두었습니다. **03_h2_dao 브랜치를 참고**하시면 됩니다.
 
