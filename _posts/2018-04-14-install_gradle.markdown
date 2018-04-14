@@ -19,8 +19,7 @@ Gradle 같은 빌드 툴은 한번 세팅해 두면, 수정해야 할 일이 드
 범위는 Install Gradle과 Get Started Guides!
 
 1. Install Gradle
-    1. [Install Gradle](https://dodo4513.github.io/2018/04/14/install_gradle/)
-
+    1. [Installation](https://dodo4513.github.io/2018/04/14/install_gradle/)
 
 - - -
 
@@ -50,7 +49,6 @@ gradle은 널리 이용되는 OS라면 무리 없이 실행이 가능합니다. 
 >$ java -version
 >java version "1.8.0_121"
 
-
 - - -
 
 ### 설치
@@ -76,6 +74,8 @@ gradle은 널리 이용되는 OS라면 무리 없이 실행이 가능합니다. 
 [MacPorts](https://www.macports.org/)는 MacOS에서 도구를 관리하기 위한 시스템입니다.
 
 >$ sudo port install gradle
+
+- - -
 
 ###### 수동 설치 방법
 
@@ -125,7 +125,9 @@ console을 열고(Windows의 경우엔 command prompt) `gradle -v`를 입력합�
 >
 >------------------------------------------------------------
 >Gradle 4.6
->------------------------------------------------------------
+>
+
+- - -
 
 ### Gradle Wrapper로 업그레이드
 
@@ -145,6 +147,7 @@ Gradle wrapper를 사용하는 경우에는 Gradle을 설치할 필요가 없습
 
 다른 릴리즈와 각 checksums들은 [release page](https://gradle.org/releases/)에서 찾을 수 있을 겁니다.
 
+- - -
 
 ### 마무리
 
