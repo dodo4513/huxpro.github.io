@@ -110,7 +110,6 @@ h2 웹 콘솔에 들어가면 입력된 테이블과 데이터도 볼 수 있다
 H2 DB 준비는 끝났으니 Mybatis를 설치하자.
 
 ```xml
-    <!-- TODO 1 mybatis-spring-boot-start 추가-->
     <dependency>
         <groupId>org.mybatis.spring.boot</groupId>
         <artifactId>mybatis-spring-boot-starter</artifactId>
