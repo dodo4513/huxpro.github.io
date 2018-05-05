@@ -11,11 +11,12 @@ tags:
 
 ### Spring boot 공부하기 관련 포스팅들
 
-Spring Boot로 간단한 홈페이지를 만들겁니다. 
-간단한 게시판부터 로그인까지, 소스 복붙이 아닌 한줄한줄 공부하며 진행하려고 하는데요.
-이미 벌려놓은 일이 많아 어떻게 될 진 모르겠지만, 여튼 출발!
+Spring Boot로 간단한 홈페이지를 만들 겁니다. 
+간단한 게시판부터 로그인까지, 소스 복붙이 아닌 한 줄 한 줄 공부하며 진행하려고 하는데요.
 
-1. []
+이미 벌려놓은 일이 많아 어떻게 될진 모르겠지만, 하여튼 출발!
+
+1. [Spring boot H2 Mybatis 예제](https://dodo4513.github.io/2018/05/05/spring_h2_mybatis/)
 
 위 포스팅의 결과물들은 아래의 깃에서 각 브랜치로 관리하고 있습니다!
 
@@ -25,13 +26,16 @@ Spring Boot로 간단한 홈페이지를 만들겁니다.
 
 ### 시작하기 전에
 
-굳이 다른 DB 설치할 것 없이 Spring boot는 H2 라고하는 In-memory 타입의 내장 DB를 지원한다. 
-spring을 실행하는 것만으로도 DB를 함께 켜주니 간단히 사용하기 정말 편리하다.
+Spring boot는 H2 라고 하는 In-memory 타입의 내장 DB를 지원한다. 
+아주 약간의 세팅으로 미리 정의된 DDL 및 DML 쿼리가 실행된 DB를 메모리에 올려주니 정말 편리하다.
+
 오늘의 목표는 H2에 Mybatis를 붙여 select 질의를 해보는 것이다.
 
-H2 설치는 [Spring boot H2 DB 예제](https://dodo4513.github.io/2018/02/11/spring_h2/)에 가면 설명이 되어 있고 해당 소스를 이어받아 Mybatis를 세팅해 볼 예정입니다. 
+Hello World 예제 + H2가 설치된 환경에서 아래 예제를 진행합니다.
 
-**위 포스트 혹은 [Hello word + H2가 세팅된 Git branch - A00_init](https://github.com/dodo4513/xavyspring/tree/A00_init) 소스를 기반으로 따라하시면 됩니다.**
+**요 [Spring boot H2 DB 예제](https://dodo4513.github.io/2018/02/11/spring_h2/) 포스트 혹은 [Hello word + H2가 세팅된 Git branch](https://github.com/dodo4513/xavyspring/tree/A00_init) 소스를 기반으로 따라하시면 됩니다.**
+
+**완성된 버전은 [A01_H2_Mybatis 브랜치](https://github.com/dodo4513/xavyspring/tree/A01_H2_Mybatis)에서 확인할 수 있습니다.**
  
 - IntelliJ IDEA 2017.1.5
 - JRE: 1.8.0_112-release-736-b21 amd64
@@ -43,12 +47,9 @@ H2 설치는 [Spring boot H2 DB 예제](https://dodo4513.github.io/2018/02/11/sp
 
 ### Mybatis, H2를 이용해 데이터 Select 예제
 
-
-마지막 결과 디렉토리 모습 찍어올려!
-
 ###### 1. 엔티티 정의하기
 
-Mybatis를 세팅하기 앞서, 아주 간단한 엔티티 클래스를 만들자.
+Mybatis를 세팅하기에 앞서, 아주 간단한 엔티티 클래스를 만들자.
 
 <img class="shadow" src="/img/my-post/20180505_spring_h2_mybatis/0.model.JPG" alt="model">
 
@@ -61,22 +62,25 @@ public class Member {
 }
 ```
 
+정말 간단하다. key로 사용할 no와 name 컬럼만 정의했다.
+
 * @Getter, @Setter는 Lombok의 어노테이션이다.
+
+- - -
 
 ###### 2. 테이블 정의 및 데이터 삽입하기
 
-[78.3 Initialize a database - Spring docs](https://docs.spring.io/spring-boot/docs/1.5.13.BUILD-SNAPSHOT/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc)의 첫줄을 읽어보자.
+시작에 앞서, [78.3 Initialize a database - Spring docs](https://docs.spring.io/spring-boot/docs/1.5.13.BUILD-SNAPSHOT/reference/htmlsingle/#howto-initialize-a-database-using-spring-jdbc)의 첫 줄을 읽어봐야 한다.
 
 > Spring Boot can automatically create the schema (DDL scripts) of your `DataSource` and initialize it (DML scripts): it loads SQL from the standard root classpath locations `schema.sql` and `data.sql`, respectively
 
-위 스프링 문서를 살펴보면 첫 줄에 정말 중요한 내용이 나온다.
-Spring boot는 자동으로 DataSource의 스키마를 생성하고 초기화해주는데, root classpath 경로에 `schema.sql`, `data.sql`을 각각 로드한다고 한다.
+**Spring boot는 자동으로 DataSource의 스키마를 생성하고 초기화해주는데, root classpath 경로에 `schema.sql`, `data.sql`을 각각 로드**한다는 내용이다.
 
-우리의 소스는 H2를 이미 설치했기 때문에 boot가 알아서 DataSource도 빈으로 넣어 줄것이고 우린 저 schema.sql과 data.sql만 넣어주면 된다.
+우리에게 기본 준비된 소스에는 H2 DB가 이미 설치돼 있으므로, schema.sql과 data.sql를 각각 생성해 DDL, DML 쿼리만 삽입하면 된다.
 
 <img class="shadow" src="/img/my-post/20180505_spring_h2_mybatis/1.sqlfile.PNG" alt="sql">
 
-아래는 schema.sql에 들어갈 내용.
+schema.sql
 ```sql
 CREATE TABLE member
 (
@@ -85,19 +89,21 @@ CREATE TABLE member
 );
 ```
 
-이는 data.sql에 들어가야할 내용.
+data.sql
 ```sql
 INSERT INTO member(name) VALUES ('싸비1');
 INSERT INTO member(name) VALUES ('싸비2');
 ```
 
-요기까지 하고 빌드해보면 콘솔에 아래처럼 저 SQL 파일들을 로드했다고 로그가 남는걸 볼 수 있을 것이다.
+그리고 빌드를 해보면 콘솔에 아래처럼 저 SQL 파일들을 로드다고 남는 로그를 볼 수 있다.
 
 <img class="shadow" src="/img/my-post/20180505_spring_h2_mybatis/2.sqlload.PNG" alt="load">
 
-실제로 h2 웹 콘솔에 들어가면 볼 수 있다.
+h2 웹 콘솔에 들어가면 입력된 테이블과 데이터도 볼 수 있다. 
 
 <img class="shadow" src="/img/my-post/20180505_spring_h2_mybatis/3.h2.PNG" alt="h2">
+
+- - -
 
 ###### 3. Mybatis dependency 추가하기
 
@@ -121,7 +127,7 @@ H2 DB 준비는 끝났으니 Mybatis를 설치하자.
       <artifactId>spring-boot-starter</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</gr*__*oupId>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
     </dependency>
     <dependency>
@@ -139,7 +145,10 @@ H2 DB 준비는 끝났으니 Mybatis를 설치하자.
 ```
 
 mybatis는 물론 jdbc부터 boot artifact까지 다 들고 있으므로 이것저것 넣어줄 필요가 없다.
+
 깔끔한 pom.xml 관리를 위해 항상 어떤 dependency를 가지고 있는지 확인해 보는 습관을 들이자.
+
+- - -
 
 ###### 4. MemberMapper 인터페이스 생성하기
 
@@ -183,14 +192,16 @@ public class HelloController {
 }
 ``` 
 
-memberMapper를 주입받아 REST 호출이 들어오면 그에 맞춰 selectMember(no)를 호출하는 매우 간단한 코드다. 
+memberMapper를 주입받았고, REST 호출이 들어오면 selectMember(no)를 반환하는 간단한 코드다. 
 
 <img class="shadow" src="/img/my-post/20180505_spring_h2_mybatis/5.result.PNG" alt="mapper">
 
-복잡한 xml 설정 하나 없이 annotation으로 정말 간단하게 mybatis를 연동했다.
+지금까지 복잡한 xml 설정 하나 없이 annotation만으로 간단하게 mybatis를 연동했다.
 
-그러나 위 코드는 조금 고민해볼 거리가 있는데, MemberMapper는 SQL 코드와 Java 코드가 함께 혼재되어 있다. 
-위 예제의 SELECT 문은 워낙 간단해 당장은 가독성이 나쁘지 않지만, 쿼리가 복잡해지거나 다양해짐에 따라 관리가 힘들어질 것이다.   
+그러나 위 코드는 조금 고민해볼 거리가 있는데, MemberMapper는 SQL 코드와 Java 코드가 함께 있다. 
+위 예제의 SELECT 문은 워낙 간단해 당장 가독성이 나쁘지 않지만, 쿼리가 복잡해지거나 다양해지면 관리가 힘들어질 것이다.   
+
+- - -
 
 ###### 5. SQL문 따로 나누기
 
@@ -214,7 +225,22 @@ root classpath 아래에 적당한 디렉토리를 만들고 그 아래에 membe
 
 * 위 resultType에 path를 나열하지 않고 간단하게 줄이려면 @Alias 어노테이션과 mybatis.type-aliases-package을 살펴보면 될 것이다.
 
-그리고 select태그의 id 값과 memberMapper 인터페이스의 메소드 이름을 아래와 같이 맞춰주면 된다.
+
+
+
+그리고 우리가 만든 member.xml의 위치를 boot에게 알려줘야 한다. application.yml에 `mybatis.mapper-locations` 옵션을 추가한다.
+
+```yaml
+spring:
+  h2:
+    console:
+      enabled: true
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+```
+
+
+마지막으로 memberMapper에 우리가 추가한 selectMember2 를 추가한다.(아까 select태그의 id 값과 메소드 이름을 동일하게 해줘야 함.)
 
 ```java
 @Mapper
@@ -228,7 +254,9 @@ public interface MemberMapper {
 }
 ``` 
 
-controller에서 selectMember2를 호출해도 같은 결과를 볼 수 있을 것이다.
+이제 controller에서 selectMember2를 호출해도 같은 결과를 볼 수 있을 것이다.
+
+- - -
 
 ### 마치며
 
@@ -236,10 +264,6 @@ mybatis 세팅은 참 다양한 방법이 있는 것 같다.
 이곳 저곳 살펴보며 세팅할땐 참 힘들었는데, 다 알고 나니 굉장히 쉽다. 
 
 레퍼런스를 항상 확인하며 개발하자.  
-
-위 소스는 아래의 Git에 올려두었습니다. 아래 브랜치를 확인해주세요~
-* 시작 브랜치 : A00_init
-* 완성 브랜치 : A01_H2_Mybatis
 
 잘못된 점이나 모호한 설명이 있다면, 편하게 메일 주세요~ 적극적으로 반영하도록 하겠습니다!
 
